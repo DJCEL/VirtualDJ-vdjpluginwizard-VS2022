@@ -31,7 +31,7 @@ function CreateCustomProject(strProjectName, strProjectPath)
 	{
 		var strProjTemplatePath = wizard.FindSymbol('PROJECT_TEMPLATE_PATH');
 		var strProjTemplate = '';
-		strProjTemplate = strProjTemplatePath + '\\default.vcproj';
+		strProjTemplate = strProjTemplatePath + '\\default.vcxproj';
 
 		var Solution = dte.Solution;
 		var strSolutionName = "";
@@ -47,7 +47,7 @@ function CreateCustomProject(strProjectName, strProjectPath)
 		}
 
 		var strProjectNameWithExt = '';
-		strProjectNameWithExt = strProjectName + '.vcproj';
+		strProjectNameWithExt = strProjectName + '.vcxproj';
 
 		var oTarget = wizard.FindSymbol("TARGET");
 		var prj;
@@ -88,9 +88,6 @@ function AddConfig(proj, strProjectName)
 		if(wizard.FindSymbol("PLUGIN_DSP")==1) LinkTool.OutputFile = "$(OutDir)/VirtualDJ/Plugins/SoundEffect/debug_" + strProjectName + ".dll";
 		else if(wizard.FindSymbol("PLUGIN_VIDEOFX")==1) LinkTool.OutputFile = "$(OutDir)/VirtualDJ/Plugins/VideoEffect/debug_" + strProjectName + ".dll";
 		else if(wizard.FindSymbol("PLUGIN_VIDEOTRANS")==1) LinkTool.OutputFile = "$(OutDir)/VirtualDJ/Plugins/VideoTransition/debug_" + strProjectName + ".dll";
-		else if(wizard.FindSymbol("PLUGIN_DEVICE")==1) LinkTool.OutputFile = "$(OutDir)/VirtualDJ/Plugins/ControlDevice/debug_" + strProjectName + ".dll";
-		else if(wizard.FindSymbol("PLUGIN_TIMECODESIGNAL")==1) LinkTool.OutputFile = "$(OutDir)/VirtualDJ/Plugins/ControlDevice/Timecode Signal/debug_" + strProjectName + ".dll";
-		else if(wizard.FindSymbol("PLUGIN_TIMECODEENGINE")==1) LinkTool.OutputFile = "$(OutDir)/VirtualDJ/Plugins/ControlDevice/Timecode Engine/debug_" + strProjectName + ".dll";
 		else LinkTool.OutputFile = "$(OutDir)/VirtualDJ/Plugins/debug_" + strProjectName + ".dll";
 
 		config = proj.Object.Configurations('Release');
