@@ -1,5 +1,5 @@
 plugin.cpp
-VdjPlugin.h
+VdjPlugin8.h
 plugin.rc
 [!if PLUGIN_DSP]
 VdjDsp8.h
