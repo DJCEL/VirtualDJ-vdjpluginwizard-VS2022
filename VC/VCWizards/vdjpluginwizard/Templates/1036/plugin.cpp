@@ -39,7 +39,7 @@ public:
 	ULONG   VDJ_API Release();
 	HRESULT VDJ_API OnParameter(int id);
 [!if PLUGIN_DSP]
-    HRESULT VDJ_API OnStart(int pos,int deck);
+        HRESULT VDJ_API OnStart(int pos,int deck);
 	HRESULT VDJ_API OnStop();
 	HRESULT VDJ_API OnProcessSamples(short *buffer,int nb,int pos);
 [!endif]
@@ -49,20 +49,6 @@ public:
 [!if PLUGIN_VIDEOTRANS]
 	HRESULT VDJ_API Compose(int crossfader,HRESULT(VDJ_API *RenderSurface[2])(),TVertex *vertices[2]);
 	HRESULT VDJ_API OnCrossfaderTimer(int *crossfader);
-[!endif]
-[!if PLUGIN_DEVICE]
-	HRESULT VDJ_API GetDeviceType(int *type);
-	HRESULT VDJ_API OnButton(int chan,int button,int down);
-	HRESULT VDJ_API OnSlider(int chan,int slider,int absvalue,int relvalue);
-	HRESULT VDJ_API OnTimer();
-[!endif]
-[!if PLUGIN_TIMECODESIGNAL]
-	HRESULT VDJ_API Decode(int *buffer,int nb);
-	HRESULT VDJ_API GetQuality(int *quality);
-	HRESULT VDJ_API AutoConfig(int *buffer,int nb);
-[!endif]
-[!if PLUGIN_TIMECODEENGINE]
-	HRESULT VDJ_API Process(int nb,float *speed);
 [!endif]
 
 private:
@@ -208,57 +194,5 @@ HRESULT VDJ_API C[!output PROJECT_NAME]::Compose(int crossfader,HRESULT(__stdcal
 	return S_OK;
 }
 [!endif]
-[!if PLUGIN_DEVICE]
-//////////////////////////////////////////////////////////////////////////
-// Device detection
-//////////////////////////////////////////////////////////////////////////
-HRESULT VDJ_API C[!output PROJECT_NAME]::GetDeviceType(int *type)
-{
-	// For example, for Hercules devices:
-	*type = PLUGINDEVICE_DJCONSOLE;
-	return S_OK;
-}
-//------------------------------------------------------------------------
-HRESULT VDJ_API C[!output PROJECT_NAME]::OnButton(int chan,int button,int down)
-{
-	return S_OK;
-}
-//------------------------------------------------------------------------
-HRESULT VDJ_API C[!output PROJECT_NAME]::OnSlider(int chan,int slider,int absvalue,int relvalue)
-{
-	return S_OK;
-}
-//------------------------------------------------------------------------
-HRESULT VDJ_API C[!output PROJECT_NAME]::OnTimer()
-{
-	return S_OK;
-}
-[!endif]
-[!if PLUGIN_TIMECODESIGNAL]
-//////////////////////////////////////////////////////////////////////////
-// Timecode signal
-//////////////////////////////////////////////////////////////////////////
-HRESULT VDJ_API C[!output PROJECT_NAME]::Decode(int *buffer,int nb)
-{
-	return S_OK;
-}
-//------------------------------------------------------------------------
-HRESULT VDJ_API C[!output PROJECT_NAME]::GetQuality(int *quality)
-{
-	return S_OK;
-}
-//------------------------------------------------------------------------
-HRESULT VDJ_API C[!output PROJECT_NAME]::AutoConfig(int *buffer,int nb)
-{
-	return S_OK;
-}
-[!endif]
-[!if PLUGIN_TIMECODEENGINE]
-//////////////////////////////////////////////////////////////////////////
-// Timecode engine
-//////////////////////////////////////////////////////////////////////////
-HRESULT VDJ_API C[!output PROJECT_NAME]::Process(int nb,float *speed)
-{
-	return S_OK;
-}
-[!endif]
+
+
