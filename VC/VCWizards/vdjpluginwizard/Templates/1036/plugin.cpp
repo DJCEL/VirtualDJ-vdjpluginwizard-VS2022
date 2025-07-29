@@ -1,23 +1,14 @@
 [!if PLUGIN_DSP]
-#include "vdjDsp.h"
+#include "vdjDsp8.h"
 [!endif]
 [!if PLUGIN_VIDEOFX]
-#include "vdjVideo.h"
+#include "vdjVideo8.h"
 [!endif]
 [!if PLUGIN_VIDEOTRANS]
-#include "vdjVideo.h"
-[!endif]
-[!if PLUGIN_DEVICE]
-#include "vdjDevice.h"
-[!endif]
-[!if PLUGIN_TIMECODESIGNAL]
-#include "vdjTimecode.h"
-[!endif]
-[!if PLUGIN_TIMECODEENGINE]
-#include "vdjTimecode.h"
+#include "vdjVideo8.h"
 [!endif]
 [!if PLUGIN_EMPTY]
-#include "vdjPlugin.h"
+#include "vdjPlugin8.h"
 [!endif]
 
 // Plugin Interface ID
@@ -30,25 +21,16 @@
 // Class definition
 //////////////////////////////////////////////////////////////////////////
 [!if PLUGIN_DSP]
-class C[!output PROJECT_NAME] : public IVdjPluginDsp
+class C[!output PROJECT_NAME] : public IVdjPluginDsp8
 [!endif]
 [!if PLUGIN_VIDEOFX]
-class C[!output PROJECT_NAME] : public IVdjPluginVideoFx
+class C[!output PROJECT_NAME] : public IVdjPluginVideoFx8
 [!endif]
 [!if PLUGIN_VIDEOTRANS]
-class C[!output PROJECT_NAME] : public IVdjPluginVideoTransition
-[!endif]
-[!if PLUGIN_DEVICE]
-class C[!output PROJECT_NAME] : public IVdjPluginDevice
-[!endif]
-[!if PLUGIN_TIMECODESIGNAL]
-class C[!output PROJECT_NAME] : public IVdjPluginTimecodeSignal
-[!endif]
-[!if PLUGIN_TIMECODEENGINE]
-class C[!output PROJECT_NAME] : public IVdjPluginTimecodeEngine
+class C[!output PROJECT_NAME] : public IVdjPluginVideoTransition8
 [!endif]
 [!if PLUGIN_EMPTY]
-class C[!output PROJECT_NAME] : public IVdjPlugin
+class C[!output PROJECT_NAME] : public IVdjPlugin8
 [!endif]
 {
 public:
@@ -105,15 +87,6 @@ HRESULT VDJ_API DllGetClassObject(const GUID &rclsid,const GUID &riid,void** ppO
 [!endif]
 [!if PLUGIN_VIDEOTRANS]
 	if(memcmp(&riid,&IID_IVdjPluginVideoTransition,sizeof(GUID))!=0) return CLASS_E_CLASSNOTAVAILABLE;
-[!endif]
-[!if PLUGIN_DEVICE]
-	if(memcmp(&riid,&IID_IVdjPluginDevice,sizeof(GUID))!=0) return CLASS_E_CLASSNOTAVAILABLE;
-[!endif]
-[!if PLUGIN_TIMECODESIGNAL]
-	if(memcmp(&riid,&IID_IVdjPluginTimecodeSignal,sizeof(GUID))!=0) return CLASS_E_CLASSNOTAVAILABLE;
-[!endif]
-[!if PLUGIN_TIMECODEENGINE]
-	if(memcmp(&riid,&IID_IVdjPluginTimecodeEngine,sizeof(GUID))!=0) return CLASS_E_CLASSNOTAVAILABLE;
 [!endif]
 	*ppObject=new C[!output PROJECT_NAME]();
 	return NO_ERROR;
