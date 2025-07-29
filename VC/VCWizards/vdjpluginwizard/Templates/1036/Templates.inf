@@ -10,13 +10,4 @@ VdjVideo.h
 [!if PLUGIN_VIDEOTRANS]
 VdjVideo.h
 [!endif]
-[!if PLUGIN_DEVICE]
-vdjDevice.h
-[!endif]
-[!if PLUGIN_TIMECODESIGNAL]
-vdjTimecode.h
-[!endif]
-[!if PLUGIN_TIMECODEENGINE]
-vdjTimecode.h
-[!endif]
 bitmap.bmp
