@@ -2,12 +2,12 @@ plugin.cpp
 VdjPlugin.h
 plugin.rc
 [!if PLUGIN_DSP]
-VdjDsp.h
+VdjDsp8.h
 [!endif]
 [!if PLUGIN_VIDEOFX]
-VdjVideo.h
+VdjVideo8.h
 [!endif]
 [!if PLUGIN_VIDEOTRANS]
-VdjVideo.h
+VdjVideo8.h
 [!endif]
 bitmap.bmp
