@@ -1,6 +1,9 @@
 #ifndef [!output PROJECT_NAME]_H
 #define [!output PROJECT_NAME]_H
 
+[!if PLUGIN_BASIC8]
+#include "vdjPlugin8.h"
+[!endif]
 [!if PLUGIN_DSP]
 #include "vdjDsp8.h"
 [!endif]
@@ -9,9 +12,6 @@
 [!endif]
 [!if PLUGIN_VIDEOTRANS]
 #include "vdjVideo8.h"
-[!endif]
-[!if PLUGIN_EMPTY]
-#include "vdjPlugin8.h"
 [!endif]
 
 #include <stdio.h>
