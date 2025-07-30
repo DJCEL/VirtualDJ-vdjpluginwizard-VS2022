@@ -68,6 +68,16 @@ public:
 	HRESULT VDJ_API OnStop();
 	HRESULT VDJ_API OnProcessSamples(float *buffer, int nb);
 [!endif]
+[!if PLUGIN_BUFFERDSP8]
+	HRESULT VDJ_API OnStart();
+	HRESULT VDJ_API OnStop();
+	short * VDJ_API OnGetSongBuffer(int songPos, int nb);
+[!endif]
+[!if PLUGIN_POSITIONDSP8]
+	HRESULT VDJ_API OnStart();
+	HRESULT VDJ_API OnStop();
+	HRESULT VDJ_API OnTransformPosition(double *songPos, double *videoPos)
+[!endif]
 [!if PLUGIN_VIDEOFX8]
 	HRESULT VDJ_API OnDeviceInit();
 	HRESULT VDJ_API OnDeviceClose();
