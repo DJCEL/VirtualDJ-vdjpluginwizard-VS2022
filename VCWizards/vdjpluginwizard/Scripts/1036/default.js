@@ -34,7 +34,7 @@ function CreateCustomProject(strProjectName, strProjectPath)
 		strProjTemplate = strProjTemplatePath + '\\default.vcxproj';
 
 		var Solution = dte.Solution;
-		var strSolutionName = "";
+		var strSolutionName = strProjectName + '.sln';
 		if (wizard.FindSymbol("CLOSE_SOLUTION"))
 		{
 			Solution.Close();
@@ -85,10 +85,10 @@ function AddConfig(proj, strProjectName)
 		LinkTool.ProgramDatabaseFile = "$(OutDir)/" + strProjectName + ".pdb";
 		LinkTool.GenerateDebugInformation = true;
 		LinkTool.LinkIncremental = linkIncrementalYes;
-		if(wizard.FindSymbol("PLUGIN_DSP8")==1) LinkTool.OutputFile = "$(OutDir)/VirtualDJ/Plugins/SoundEffect/debug_" + strProjectName + ".dll";
-		else if(wizard.FindSymbol("PLUGIN_VIDEOFX8")==1) LinkTool.OutputFile = "$(OutDir)/VirtualDJ/Plugins/VideoEffect/debug_" + strProjectName + ".dll";
-		else if(wizard.FindSymbol("PLUGIN_VIDEOTRANS8")==1) LinkTool.OutputFile = "$(OutDir)/VirtualDJ/Plugins/VideoTransition/debug_" + strProjectName + ".dll";
-		else LinkTool.OutputFile = "$(OutDir)/VirtualDJ/Plugins/debug_" + strProjectName + ".dll";
+		if(wizard.FindSymbol("PLUGIN_DSP8")==1) LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\SoundEffect\Dev\$(TargetName)$(TargetExt)";
+		else if(wizard.FindSymbol("PLUGIN_VIDEOFX8")==1) LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\VideoEffect\Dev\$(TargetName)$(TargetExt)";
+		else if(wizard.FindSymbol("PLUGIN_VIDEOTRANS8")==1) LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\VideoTransition\Dev\$(TargetName)$(TargetExt)";
+		else LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\Other\Dev\$(TargetName)$(TargetExt)";
 
 		config = proj.Object.Configurations('Release');
 		config.ConfigurationType = typeDynamicLibrary;
@@ -101,7 +101,10 @@ function AddConfig(proj, strProjectName)
 		var LinkTool = config.Tools('VCLinkerTool');
 		LinkTool.LinkIncremental = linkIncrementalNo;
 		LinkTool.GenerateDebugInformation = false;
-		LinkTool.OutputFile = "$(OutDir)/" + strProjectName + ".dll";
+		if(wizard.FindSymbol("PLUGIN_DSP8")==1) LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\SoundEffect\Dev\$(TargetName)$(TargetExt)";
+		else if(wizard.FindSymbol("PLUGIN_VIDEOFX8")==1) LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\VideoEffect\Dev\$(TargetName)$(TargetExt)";
+		else if(wizard.FindSymbol("PLUGIN_VIDEOTRANS8")==1) LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\VideoTransition\Dev\$(TargetName)$(TargetExt)";
+		else LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\Other\Dev\$(TargetName)$(TargetExt)";
 	}
 	catch(e)
 	{
