@@ -204,7 +204,71 @@ HRESULT VDJ_API C[!output PROJECT_NAME]::OnDraw(float crossfader)
 // TODO
 [!endif]
 [!if PLUGIN_ONLINESOURCE]
-// TODO
+//------------------------------------------------------------------------
+HRESULT VDJ_API C[!output PROJECT_NAME]::IsLogged() 
+{ 
+	return E_NOTIMPL; 
+}
+//------------------------------------------------------------------------
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnLogin()
+{ 
+	return E_NOTIMPL;
+}
+//------------------------------------------------------------------------
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnLogout() 
+{ 
+	return E_NOTIMPL;
+}
+//------------------------------------------------------------------------
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnOAuth(const char* access_token, size_t access_token_expire, const char* refresh_token, const char* code, const char* errorMessage) 
+{ 
+	return E_NOTIMPL; 
+}
+//------------------------------------------------------------------------
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnSearch(const char* search, IVdjTracksList* tracksList)
+{
+	return E_NOTIMPL; 
+}
+//------------------------------------------------------------------------
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnSearchCancel() 
+{ 
+	return E_NOTIMPL;
+}
+//------------------------------------------------------------------------
+HRESULT VDJ_API C[!output PROJECT_NAME]::GetStreamUrl(const char* uniqueId, IVdjString& url, IVdjString& errorMessage)
+{ 
+	return E_NOTIMPL; 
+}
+//------------------------------------------------------------------------
+HRESULT VDJ_API C[!output PROJECT_NAME]::GetFolderList(IVdjSubfoldersList* subfoldersList) 
+{ 
+	return E_NOTIMPL;
+}
+//------------------------------------------------------------------------
+HRESULT VDJ_API C[!output PROJECT_NAME]::GetFolder(const char* folderUniqueId, IVdjTracksList* tracksList)
+{ 
+	return E_NOTIMPL; 
+}
+//------------------------------------------------------------------------
+HRESULT VDJ_API C[!output PROJECT_NAME]::GetFolderContextMenu(const char* folderUniqueId, IVdjContextMenu* contextMenu) 
+{ 
+	return E_NOTIMPL; 
+}
+//------------------------------------------------------------------------
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnFolderContextMenu(const char* folderUniqueId, size_t menuIndex) 
+{ 
+	return E_NOTIMPL; 
+}
+//------------------------------------------------------------------------
+HRESULT VDJ_API C[!output PROJECT_NAME]::GetContextMenu(const char* uniqueId, IVdjContextMenu* contextMenu) 
+{ 
+	return E_NOTIMPL; 
+}
+//------------------------------------------------------------------------
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnContextMenu(const char* uniqueId, size_t menuIndex) 
+{ 
+	return E_NOTIMPL; 
+}
 [!endif]
 
 
