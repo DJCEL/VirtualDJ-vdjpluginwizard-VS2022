@@ -57,8 +57,10 @@ public:
 
 private:
 	// For example:
-	float SliderValue1;
-	float SliderValue2;
+	float m_SliderValue1;
+	float m_SliderValue2;
+	float m_Param1;
+	float m_Param2;
 
 	typedef enum _ID_Interface
 	{
