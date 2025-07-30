@@ -1,9 +1,8 @@
 //////////////////////////////////////////////////////////////////////////
 //
-// VirtualDJ / Cue / VirtualVinyl / PCDJ VJ
-// Plugin SDK for Windows
-// (c)Atomix Productions 2006-2008
-// File Version: 1.3
+// VirtualDJ
+// Plugin SDK
+// (c)Atomix Productions 2011-2025
 //
 //////////////////////////////////////////////////////////////////////////
 //
@@ -14,92 +13,212 @@
 //////////////////////////////////////////////////////////////////////////
 
 
-#ifndef VdjVideo_H
-#define VdjVideo_H
+#ifndef VdjVideo8H
+#define VdjVideo8H
 
-#include "VdjPlugin.h"
+#include "vdjPlugin8.h"
 
 //////////////////////////////////////////////////////////////////////////
-// DirectX data types
+// data types
 
-struct IDirect3DDevice9;
-struct IDirect3DTexture9;
-struct TVertex
+#ifndef TVertex8
+struct TVertex8
 {
 	struct {float x,y,z;} position;
 	DWORD color;
-	FLOAT tu,tv;
+	FLOAT tu, tv;
 };
+#endif
+
+enum EVdjVideoEngine
+{
+	VdjVideoEngineAny = 0,
+	VdjVideoEngineDirectX9 = 1,
+	VdjVideoEngineOpenGL = 2,
+	VdjVideoEngineDirectX11 = 3,
+	VdjVideoEngineOpenGLES2 = 4,
+	VdjVideoEngineMetal = 5,
+	VdjVideoEngineAnyPtr = 6,
+};
+
+
+#define VDJFLAG_VIDEO_MASTERONLY		0x10000
+#define VDJFLAG_VIDEO_VISUALISATION		0x20000	// The effect generates visuals, rather than applying an effect on given images
+#define VDJFLAG_VIDEO_OVERLAY			0x40000 // The effect is an overlay over the image already there. When this is set, you can't call DrawDeck in your plugin (it is already done before OnDraw())
+#define VDJFLAG_VIDEO_HASRESIZE			0x80000 // The effect knows how to resize itself when ctrl is pressed
+#define VDJFLAG_VIDEO_NOAUTOACTIVE		0x200000 // The video engine will not be automatically activated when activating this effect (for audio effects with a video option)
+#define VDJFLAG_VIDEO_OUTPUTRESOLUTION		0x400000 // If the effect is applied on deck, the effect will be applied onto the video output resolution instead of the video source resolution
+#define VDJFLAG_VIDEO_OUTPUTASPECTRATIO 	0x800000  // If the effect is applied on deck, the effect will be applied in same aspect ratio as video output (and minimum resolution between video source and video output)
+#define VDJFLAG_VIDEO_FORRECORDING		0x1000000 // If the effect is applied on the master, it will be rendered in the record resolution, and after videoskin
+
+// For transitions, you need to define in OnGetPluginInfo the behavior of the auto-videocrossfader:
+#define VDJFLAG_VIDEOTRANSITION_CONTINOUS	0x100000 // the crossfader moves continuously from one side to the other
+#define VDJFLAG_VIDEOTRANSITION_MIDPOINTS	0x000000 // the crossfader stops at 25% or 75% when both videos are playing
+
 
 //////////////////////////////////////////////////////////////////////////
-// VideoFx plugin class
-
-class IVdjPluginVideoFx : public IVdjPlugin
+// Internal structures
+struct IVdjVideoCallbacks8
 {
-public:
-	// called when DirectX is initialized and closed
-	// if you need to allocate private surfaces or textures,
-	// this is the place to do it
-	virtual HRESULT VDJ_API OnDXInit() {return 0;}
-	virtual HRESULT VDJ_API OnDXClose() {return 0;}
+	virtual HRESULT DrawDeck()=0;
 
-	// called on start and stop of the plugin
-	virtual HRESULT VDJ_API OnStart() {return 0;}
-	virtual HRESULT VDJ_API OnStop() {return 0;}
+	//For DirectX 9 (windows 32-bit) device is IDirect3DDevice9*
+	//For DirectX 11 (windows 64-bit) device is ID3D11Device*
+ 	//For Metal (macOS) device is id<MTLRenderCommandEncoder>
+	virtual HRESULT GetDevice(EVdjVideoEngine engine, void **device)=0;
 
-	// use this function to render the D3D surface on the device, using any modification you want
-	// return S_OK if you actually draw the texture on the device, or S_FALSE to let VirtualDJ do it
-	virtual HRESULT VDJ_API OnDraw(IDirect3DTexture9 *texture,TVertex *vertices)=0;
-
-	// variables you can use (once DX has been initialized)
-	IDirect3DDevice9 *D3DDevice;
-	int ImageWidth,ImageHeight;
+	//For DirectX 9 (windows 32-bit) texture is IDirect3DTexture9*
+	//For DirectX 11 (windows 64-bit) texture is ID3D11ShaderResourceView*
+	//For OpenGL (macOS) texture is a regular opengl texture id, with type GLuint
+	//For Metal (macOS) texture is id<MTLTexture>
+	virtual HRESULT GetTexture(EVdjVideoEngine engine, void **texture, TVertex8 **vertices)=0;
 };
+
 
 //////////////////////////////////////////////////////////////////////////
 // VideoTransition plugin class
 
-class IVdjPluginVideoTransition : public IVdjPlugin
+class IVdjPluginVideoTransition8 : public IVdjPlugin8
 {
 public:
-	// called when DirectX is initialized and closed
-	// if you need to allocate private surfaces or textures,
-	// this is the place to do it
-	virtual HRESULT VDJ_API OnDXInit() {return 0;}
-	virtual HRESULT VDJ_API OnDXClose() {return 0;}
+	// OnDraw is called whenever the video crossfader is different than 0.0 or 1.0.
+	// this function should mix the two images from both decks.
+	// call DrawDeck() to draw the image for each deck with the specified vertices.
+	// call GetVertices() to retrive the default vertices, and modify it. (or pass NULL to DrawDeck() to use the default)
+	virtual HRESULT VDJ_API OnDraw(float crossfader)=0;
+	TVertex8* (*GetVertices)(int deck);
+	HRESULT (*DrawDeck)(int deck, TVertex8* vertices);
 
-	// use this function to compose both surfaces on the device.
-	// calling the RenderSurface[x] function will render the image on the actual render target,
-	// using the vertices[x] given.
-	virtual HRESULT VDJ_API Compose(int crossfader,HRESULT(VDJ_API *RenderSurface[2])(),TVertex *vertices[2])=0;
+	// for more complicated operations, you can ask direct access to the device and textures
 
-	// OnStart() and OnStop() are called if the user activate the auto-transition.
-	// once activated, OnCrossfaderTimer() will be called every frame to let you change
-	// the value of the video crossfader before rendering.
-	// return S_FALSE will stop the auto-transition (OnStop() will not be called).
-	// return E_NOTIMPL will use the default auto-transition.
-	// NOTE: if crossfader is set to 0 or 4096, the Compose() function will not be called.
-	virtual HRESULT VDJ_API OnStart(int chan) {return 0;}
-	virtual HRESULT VDJ_API OnStop() {return 0;}
-	virtual HRESULT VDJ_API OnCrossfaderTimer(int *crossfader) {return E_NOTIMPL;}
+	//For DirectX 9 (windows 32-bit) device is IDirect3DDevice9*
+	//For DirectX 11 (windows 64-bit) device is ID3D11Device*
+        //For Metal (macOS) device is id<MTLRenderCommandEncoder>
+	HRESULT (*GetDevice)(EVdjVideoEngine engine, void **device);
 
-	// variables you can use (once DX has been initialized)
-	IDirect3DDevice9 *D3DDevice;
-	int ImageWidth,ImageHeight;
+	//For DirectX 9 (windows 32-bit) texture is IDirect3DTexture9*
+	//For DirectX 11 (windows 64-bit) texture is ID3D11ShaderResourceView*
+	//For OpenGL (macOS) texture is a regular opengl texture id, with type GLuint
+	//For Metal (macOS) texture is id<MTLTexture>
+	HRESULT (*GetTexture)(EVdjVideoEngine engine, int deck, void**texture);
+
+	// When DirectX/OpenGL/Metal is initialized or closed, these functions will be called
+	virtual HRESULT VDJ_API OnDeviceInit() {return S_OK;}
+	virtual HRESULT VDJ_API OnDeviceClose() {return S_OK;}
+
+	// size of the output
+	int width, height;
+
+	// Some useful variables
+	int SampleRate;		 // samplerate of the audio engine
+	int SongBpm;		 // number of samples between two consecutive beats for master song
+	double SongPosBeats; // number of beats since the first beat in the master song
+};
+
+class IVdjPluginVideoTransitionMultiDeck8 : public IVdjPlugin8
+{
+public:
+	// this version is used if you want a transition plugin that can handle more than 2 decks.
+	// OnDrawMultiDeck is called for each frame (whatever the crossfader position).
+	// videoDecks is an array of nbVideos integers, giving the decks number of each deck that has a video available.
+	// the array is sorted by order of "importance" of the videos (videoLeft and videoRight first, then playing video, etc).
+	// call DrawDeck() to draw the images for each deck with the specified vertices.
+	// call GetVertices to initialize the vertices to their default value, and modify it. (or pass NULL to DrawDeck() to use the default)
+	// NOTE: if you want to retrieve the value of the video crossfader, call GetInfo("video_crossfader");
+	virtual HRESULT VDJ_API OnDrawMultiDeck(int nbVideoDecks, int *videoDecks)=0;
+	TVertex8* (*GetVertices)(int deck);
+	HRESULT (*DrawDeck)(int deck, TVertex8* vertices);
+	
+	// for more complicated operations, you can ask direct access to the device and textures
+
+	//For DirectX 9 (windows 32-bit) device is IDirect3DDevice9*
+	//For DirectX 11 (windows 64-bit) device is ID3D11Device*
+        //For Metal (macOS) device is id<MTLRenderCommandEncoder>
+	HRESULT (*GetDevice)(EVdjVideoEngine engine, void **device);
+
+	//For DirectX 9 (windows 32-bit) texture is IDirect3DTexture9*
+	//For DirectX 11 (windows 64-bit) texture is ID3D11ShaderResourceView*
+	//For OpenGL (macOS) texture is a regular opengl texture id, with type GLuint
+	//For Metal (macOS) texture is id<MTLTexture>
+	HRESULT (*GetTexture)(EVdjVideoEngine engine, int deck, void**texture);
+
+	// When DirectX/OpenGL is initialized or closed, these functions will be called
+	virtual HRESULT VDJ_API OnDeviceInit() {return S_OK;}
+	virtual HRESULT VDJ_API OnDeviceClose() {return S_OK;}
+
+	// size of the output
+	int width, height;
+
+	// Some useful variables
+	int SampleRate;		 // samplerate of the audio engine
+	int SongBpm;		 // number of samples between two consecutive beats for master song
+	double SongPosBeats; // number of beats since the first beat in the master song
+};
+
+
+//////////////////////////////////////////////////////////////////////////
+// VideoFx plugin class
+
+class IVdjPluginVideoFx8 : public IVdjPlugin8
+{
+public:
+	// called on start and stop of the plugin
+	virtual HRESULT VDJ_API OnStart() {return S_OK;}
+	virtual HRESULT VDJ_API OnStop() {return S_OK;}
+
+	// OnDraw() is called every frame while your plugin is activated.
+	// You can get access to the DirectX/OpenGL device by calling GetDevice, and do any operation you want
+	// In order to draw the original image, you can either just call DrawDeck() if you don't need to modify the image (for overlay plugins for examples),
+	// or call GetTexture to get low-level access to the texture and its vertices.
+	virtual HRESULT VDJ_API OnDraw()=0;
+
+	// for more complicated operations, you can ask direct access to the device and textures:
+
+	//For DirectX 9 (windows 32-bit) device is IDirect3DDevice9*
+	//For DirectX 11 (windows 64-bit) device is ID3D11Device*
+        //For Metal (macOS) device is id<MTLRenderCommandEncoder>
+	HRESULT GetDevice(EVdjVideoEngine engine, void **device) {return vcb->GetDevice(engine,device);}
+
+	//For DirectX 9 (windows 32-bit) texture is IDirect3DTexture9*
+	//For DirectX 11 (windows 64-bit) texture is ID3D11ShaderResourceView*
+	//For OpenGL (macOS) texture is a regular opengl texture id, with type GLuint
+	//For Metal (macOS) texture is id<MTLTexture>
+	HRESULT GetTexture(EVdjVideoEngine engine, void **texture, TVertex8 **vertices) {return vcb->GetTexture(engine,texture,vertices);}
+
+	HRESULT DrawDeck() {return vcb->DrawDeck();}
+
+	// When DirectX/OpenGL/Metal is initialized or closed, these functions will be called
+	virtual HRESULT VDJ_API OnDeviceInit() {return S_OK;}
+	virtual HRESULT VDJ_API OnDeviceClose() {return S_OK;}
+
+	// Optionally, you can implement OnProcessSamples to make your video effect operate based on sound input
+	virtual HRESULT VDJ_API OnAudioSamples(float *buffer, int nb) { return E_NOTIMPL; };
+
+	// Some useful variables
+	int SampleRate;		 // samplerate of the audio engine
+	int SongBpm;		 // number of samples between two consecutive beats for this song
+	double SongPosBeats; // number of beats since the first beat in the song
+
+	// size of the output
+	int width, height;
+
+	IVdjVideoCallbacks8 *vcb;
 };
 
 //////////////////////////////////////////////////////////////////////////
 // GUID definitions
 
-#ifndef VDJVIDEOGUID_DEFINED
-#define VDJVIDEOGUID_DEFINED
-	static const GUID IID_IVdjPluginVideoFx = { 0x9ad1e934, 0x31ce, 0x4be8, { 0xb3, 0xee, 0x1e, 0x1f, 0x1c, 0x94, 0x55, 0x10 } };
-	static const GUID IID_IVdjPluginVideoTransition = { 0x119f6f6a, 0x1a37, 0x4fe5, { 0x96, 0x53, 0x31, 0x20, 0x3a, 0xc9, 0x4e, 0x28 } };
+#ifndef VDJVIDEO8GUID_DEFINED
+#define VDJVIDEO8GUID_DEFINED
+static const GUID IID_IVdjPluginVideoFx8 = { 0xbf1876aa, 0x3cbd, 0x404a, { 0xbe, 0xab, 0x5f, 0x8b, 0x51, 0xe3, 0x90, 0xc0 } };
+static const GUID IID_IVdjPluginVideoTransition8 = { 0x2f350983, 0xf88f, 0x429c, { 0x87, 0x75, 0x62, 0x87, 0x68, 0x7d, 0xe0, 0xd7 } };
+static const GUID IID_IVdjPluginVideoTransitionMultiDeck8 = { 0x54d0e81c, 0x51a6, 0x49b0, { 0x82, 0x3f, 0x75, 0x91, 0x76, 0xf1, 0xcf, 0x06 } };
 #else
-	extern static const GUID IID_IVdjPluginVideoFx;
-	extern static const GUID IID_IVdjPluginVideoTransition;
+extern static const GUID IID_IVdjPluginVideoFx8;
+extern static const GUID IID_IVdjPluginVideoTransition8;
+extern static const GUID IID_IVdjPluginVideoTransitionMultiDeck8;
 #endif
 
 //////////////////////////////////////////////////////////////////////////
-	
-#endif  /* VdjVideo_H */
+
+#endif
