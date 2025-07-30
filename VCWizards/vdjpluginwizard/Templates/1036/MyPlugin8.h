@@ -11,12 +11,7 @@
 #include "vdjPlugin8.h"
 [!endif]
 
-// Plugin Interface ID
-#define ID_SLIDER_1  0
-#define ID_SLIDER_2  1
-#define ID_STRING_1  3
-
-
+	
 //////////////////////////////////////////////////////////////////////////
 // Class definition
 //////////////////////////////////////////////////////////////////////////
@@ -56,4 +51,10 @@ private:
 	int slider1;
 	int slider2;
 	char string1[128];
+
+	// Plugin Interface ID
+	#define ID_SLIDER_1  0
+	#define ID_SLIDER_2  1
+	#define ID_STRING_1  3
+
 };
