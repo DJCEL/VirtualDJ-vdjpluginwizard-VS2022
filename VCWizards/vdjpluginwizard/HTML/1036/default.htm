@@ -17,9 +17,14 @@
 		<!--  -->
 		<SYMBOL NAME='WIZARD_DIALOG_TITLE' TYPE="text" VALUE='VirtualDJ Plugin'></SYMBOL>
 		<SYMBOL NAME='PLUGIN_BASIC8' TYPE="checkbox" VALUE="true"></SYMBOL>
+		<SYMBOL NAME='PLUGIN_STARTSTOP8' TYPE="checkbox" VALUE="false"></SYMBOL>
 		<SYMBOL NAME='PLUGIN_DSP8' TYPE="checkbox" VALUE="false"></SYMBOL>
+		<SYMBOL NAME='PLUGIN_BUFFERDSP8' TYPE="checkbox" VALUE="false"></SYMBOL>
+		<SYMBOL NAME='PLUGIN_POSITIONDSP8' TYPE="checkbox" VALUE="false"></SYMBOL>
 		<SYMBOL NAME='PLUGIN_VIDEOFX8' TYPE="checkbox" VALUE="false"></SYMBOL>
 		<SYMBOL NAME='PLUGIN_VIDEOTRANS8' TYPE="checkbox" VALUE="false"></SYMBOL>
+		<SYMBOL NAME='PLUGIN_VIDEOTRANSMULTIDECK8' TYPE="checkbox" VALUE="false"></SYMBOL>
+		<SYMBOL NAME='PLUGIN_ONLINESOURCE' TYPE="checkbox" VALUE="false"></SYMBOL>
 		<SYMBOL NAME='SOURCE_FILTER' TYPE="text" VALUE='txt'></SYMBOL>
 		<SYMBOL NAME='APP_TYPE_SUMMARY' TYPE="text" VALUE='VirtualDJ Plugin Wizard'></SYMBOL>
 	</HEAD>
@@ -111,8 +116,12 @@
 														<SPAN CLASS="itemTextTop"><u>What kind of plugin do you want to make&nbsp;?</u>
 															<P CLASS="Spacer">&nbsp;</P>
 															<INPUT TYPE="radio" CLASS="Radio" NAME="ProcessRadio" ID="PLUGIN_BASIC8" ACCESSKEY="B" TITLE="Basic Plugin." VALUE="PLUGIN_BASIC8">
-															<DIV CLASS="itemTextRadioB" TITLE="Blank Plugin." ID="Div3">
+															<DIV CLASS="itemTextRadioB" TITLE="Basic Plugin." ID="Div3">
 																<LABEL FOR="PLUGIN_BASIC8" TITLE="Basic Plugin." ID="Label3"><u>B</u>asic Plugin (for Pro only)</LABEL>
+															</DIV>
+															<INPUT TYPE="radio" CLASS="Radio" NAME="ProcessRadio" ID="PLUGIN_PLUGIN_STARTSTOP8" ACCESSKEY="D" TITLE="StartStop Plugin." VALUE="PLUGIN_STARTSTOP8">
+															<DIV CLASS="itemTextRadioB" TITLE="StartStop Plugin." ID="Div4">
+																<LABEL FOR="PLUGIN_STARTSTOP8" TITLE="StartStop Plugin." ID="Label4"><u>S</u>tartStop Plugin (for Pro only)</LABEL>
 															</DIV>
 															<INPUT TYPE="radio" CLASS="Radio" NAME="ProcessRadio" ID="PLUGIN_DSP8" ACCESSKEY="S" TITLE="Sound Effect." VALUE="PLUGIN_DSP8">
 															<DIV CLASS="itemTextRadioB" TITLE="Sound Effect." ID="AUT_ID1">
