@@ -111,6 +111,38 @@ HRESULT VDJ_API C[!output PROJECT_NAME]::OnProcessSamples(float *buffer, int nb)
 	return S_OK;
 }
 [!endif]
+[!if PLUGIN_BUFFERDSP8]
+//////////////////////////////////////////////////////////////////////////
+// Sound processing
+//////////////////////////////////////////////////////////////////////////
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnStart()
+{
+	return S_OK;
+}
+//------------------------------------------------------------------------
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnStop()
+{
+	return S_OK;
+}
+//------------------------------------------------------------------------
+// TODO	
+[!endif]
+[!if PLUGIN_POSITIONDSP8]
+//////////////////////////////////////////////////////////////////////////
+// Sound processing
+//////////////////////////////////////////////////////////////////////////
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnStart()
+{
+	return S_OK;
+}
+//------------------------------------------------------------------------
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnStop()
+{
+	return S_OK;
+}
+//------------------------------------------------------------------------
+// TODO
+[!endif]	
 [!if PLUGIN_VIDEOFX8]
 //////////////////////////////////////////////////////////////////////////
 // Video processing
@@ -153,6 +185,16 @@ HRESULT VDJ_API C[!output PROJECT_NAME]::OnDraw(float crossfader)
 {
 	return S_OK;
 }
+[!endif]
+[!if PLUGIN_VIDEOTRANSMULTIDECK8]
+//////////////////////////////////////////////////////////////////////////
+// Video processing
+//////////////////////////////////////////////////////////////////////////
+	
+// TODO
+[!endif]
+[!if PLUGIN_ONLINESOURCE]
+// TODO
 [!endif]
 
 
