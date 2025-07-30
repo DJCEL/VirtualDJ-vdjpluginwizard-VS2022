@@ -7,6 +7,9 @@ HRESULT VDJ_API DllGetClassObject(const GUID &rclsid,const GUID &riid,void** ppO
 
 [!if PLUGIN_BASIC8]
 	if(memcmp(&riid,&IID_IVdjPluginBasic8,sizeof(GUID))!=0) return CLASS_E_CLASSNOTAVAILABLE;
+[!endif]
+[!if PLUGIN_STARTSTOP8]
+	if(memcmp(&riid,&IID_IVdjPluginStartStop8,sizeof(GUID))!=0) return CLASS_E_CLASSNOTAVAILABLE;
 [!endif]	
 [!if PLUGIN_DSP8]
 	if(memcmp(&riid,&IID_IVdjPluginDsp8,sizeof(GUID))!=0) return CLASS_E_CLASSNOTAVAILABLE;
