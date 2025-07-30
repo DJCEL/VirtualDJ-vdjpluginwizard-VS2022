@@ -85,9 +85,9 @@ function AddConfig(proj, strProjectName)
 		LinkTool.ProgramDatabaseFile = "$(OutDir)/" + strProjectName + ".pdb";
 		LinkTool.GenerateDebugInformation = true;
 		LinkTool.LinkIncremental = linkIncrementalYes;
-		if(wizard.FindSymbol("PLUGIN_DSP")==1) LinkTool.OutputFile = "$(OutDir)/VirtualDJ/Plugins/SoundEffect/debug_" + strProjectName + ".dll";
-		else if(wizard.FindSymbol("PLUGIN_VIDEOFX")==1) LinkTool.OutputFile = "$(OutDir)/VirtualDJ/Plugins/VideoEffect/debug_" + strProjectName + ".dll";
-		else if(wizard.FindSymbol("PLUGIN_VIDEOTRANS")==1) LinkTool.OutputFile = "$(OutDir)/VirtualDJ/Plugins/VideoTransition/debug_" + strProjectName + ".dll";
+		if(wizard.FindSymbol("PLUGIN_DSP8")==1) LinkTool.OutputFile = "$(OutDir)/VirtualDJ/Plugins/SoundEffect/debug_" + strProjectName + ".dll";
+		else if(wizard.FindSymbol("PLUGIN_VIDEOFX8")==1) LinkTool.OutputFile = "$(OutDir)/VirtualDJ/Plugins/VideoEffect/debug_" + strProjectName + ".dll";
+		else if(wizard.FindSymbol("PLUGIN_VIDEOTRANS8")==1) LinkTool.OutputFile = "$(OutDir)/VirtualDJ/Plugins/VideoTransition/debug_" + strProjectName + ".dll";
 		else LinkTool.OutputFile = "$(OutDir)/VirtualDJ/Plugins/debug_" + strProjectName + ".dll";
 
 		config = proj.Object.Configurations('Release');
