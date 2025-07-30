@@ -37,11 +37,20 @@ class C[!output PROJECT_NAME] : public IVdjPlugin8
 [!if PLUGIN_DSP8]
 class C[!output PROJECT_NAME] : public IVdjPluginDsp8
 [!endif]
+[!if PLUGIN_BUFFERDSP8]
+class C[!output PROJECT_NAME] : public IVdjPluginBufferDsp8
+[!endif]
+[!if PLUGIN_POSITIONDSP8]
+class C[!output PROJECT_NAME] : public IVdjPluginPositionDsp8
+[!endif]
 [!if PLUGIN_VIDEOFX8]
 class C[!output PROJECT_NAME] : public IVdjPluginVideoFx8
 [!endif]
 [!if PLUGIN_VIDEOTRANS8]
 class C[!output PROJECT_NAME] : public IVdjPluginVideoTransition8
+[!endif]
+[!if PLUGIN_VIDEOTRANSMULTIDECK8]
+class C[!output PROJECT_NAME] : public IVdjPluginVideoTransitionMultiDeck8
 [!endif]
 [!if PLUGIN_ONLINESOURCE]
 class C[!output PROJECT_NAME] : public IVdjPluginOnlineSource
