@@ -23,7 +23,7 @@
 #include "vdjVideo8.h"
 [!endif]
 [!if PLUGIN_ONLINESOURCE]
-VdjOnlineSource.h
+#include "VdjOnlineSource.h"
 [!endif]
 
 #include <stdio.h>
