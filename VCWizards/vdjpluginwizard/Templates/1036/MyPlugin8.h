@@ -7,10 +7,19 @@
 [!if PLUGIN_DSP8]
 #include "vdjDsp8.h"
 [!endif]
+[!if PLUGIN_BUFFERDSP8]
+#include "vdjDsp8.h"
+[!endif]
+[!if PLUGIN_POSITIONDSP8]
+#include "vdjDsp8.h"
+[!endif]
 [!if PLUGIN_VIDEOFX8]
 #include "vdjVideo8.h"
 [!endif]
 [!if PLUGIN_VIDEOTRANS8]
+#include "vdjVideo8.h"
+[!endif]
+[!if PLUGIN_VIDEOTRANSMULTIDECK8]
 #include "vdjVideo8.h"
 [!endif]
 [!if PLUGIN_ONLINESOURCE]
