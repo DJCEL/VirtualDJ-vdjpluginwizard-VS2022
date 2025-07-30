@@ -200,8 +200,20 @@ HRESULT VDJ_API C[!output PROJECT_NAME]::OnDraw(float crossfader)
 //////////////////////////////////////////////////////////////////////////
 // Video processing
 //////////////////////////////////////////////////////////////////////////
-	
-// TODO
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnDeviceInit()
+{
+	return S_OK;
+}
+//------------------------------------------------------------------------
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnDeviceClose()
+{
+	return S_OK;
+}
+//------------------------------------------------------------------------	
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnDrawMultiDeck(int nbVideoDecks, int *videoDecks)
+{
+	return S_OK;
+}
 [!endif]
 [!if PLUGIN_ONLINESOURCE]
 //------------------------------------------------------------------------
