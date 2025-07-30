@@ -37,6 +37,7 @@ public:
 	ULONG   VDJ_API Release();
 	HRESULT VDJ_API OnParameter(int id);
 	HRESULT VDJ_API OnGetParameterString(int id, char *outParam, int outParamSize);
+	HRESULT VDJ_API OnGetUserInterface(TVdjPluginInterface8 *pluginInterface);
 [!if PLUGIN_DSP]
         HRESULT VDJ_API OnStart();
 	HRESULT VDJ_API OnStop();
