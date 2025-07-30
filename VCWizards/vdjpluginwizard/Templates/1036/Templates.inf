@@ -11,3 +11,6 @@ VdjVideo8.h
 [!if PLUGIN_VIDEOTRANS8]
 VdjVideo8.h
 [!endif]
+[!if PLUGIN_ONLINESOURCE]
+VdjOnlineSource.h
+[!endif]
