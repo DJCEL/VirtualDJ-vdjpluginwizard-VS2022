@@ -1,3 +1,6 @@
+#ifndef [!output PROJECT_NAME]_H
+#define [!output PROJECT_NAME]_H
+
 [!if PLUGIN_DSP]
 #include "vdjDsp8.h"
 [!endif]
@@ -65,3 +68,5 @@ private:
 	} ID_Interface;
 
 };
+
+#endif
