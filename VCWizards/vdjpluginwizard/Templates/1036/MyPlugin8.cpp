@@ -7,8 +7,8 @@ HRESULT VDJ_API C[!output PROJECT_NAME]::OnLoad()
 	HRESULT hr = S_FALSE;
 	
 	// For example:
-	hr = DeclareParameterSlider(&SliderValue1, ID_SLIDER_1, "Param1", "P1", 0.0f);
-	hr = DeclareParameterSlider(&SliderValue2, ID_SLIDER_2, "Param2", "P2", 0.5f);
+	hr = DeclareParameterSlider(&m_SliderValue1, ID_SLIDER_1, "Param1", "P1", 0.0f);
+	hr = DeclareParameterSlider(&m_SliderValue2, ID_SLIDER_2, "Param2", "P2", 0.5f);
 
 	hr = OnParameter(ID_SLIDER_1);
 	hr = OnParameter(ID_SLIDER_2);
@@ -67,7 +67,7 @@ HRESULT VDJ_API C[!output PROJECT_NAME]::OnGetParameterString(int id, char *outP
 //////////////////////////////////////////////////////////////////////////
 // Sound processing
 //////////////////////////////////////////////////////////////////////////
-HRESULT VDJ_API C[!output PROJECT_NAME]::OnStart(int pos,int deck)
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnStart()
 {
 	return S_OK;
 }
@@ -77,36 +77,22 @@ HRESULT VDJ_API C[!output PROJECT_NAME]::OnStop()
 	return S_OK;
 }
 //------------------------------------------------------------------------
-HRESULT VDJ_API C[!output PROJECT_NAME]::OnProcessSamples(short *buffer,int nb,int pos)
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnProcessSamples(float *buffer, int nb)
 {
 	// Example 1:
-	short left,right;
+	float left,right;
 	int i;
 	
 	for(i=0;i<nb;i++)
 	{
 		left = buffer[2*i];
 		right = buffer[2*i+1];
-		// do whatever you want here
-		samples[2*i] = left;
-		samples[2*i+1] = right;
+		
+		// do whatever you want here (modify left and/or right values)
+		
+		buffer[2*i] = left;
+		buffer[2*i+1] = right;
 	}
-
-
-    /*
-	// Example 2:
-    DWORD *samples = (DWORD*) buffer;
-	short left,right;
-	int i;
-	
-	for(i=0;i<nb;i++)
-	{
-		left = LEFTCHAN(samples[i]);
-		right = RIGHTCHAN(samples[i]);
-		// do whatever you want here
-		samples[i] = MAKECHAN(left,right);	
-	}
-    */
 	return S_OK;
 }
 [!endif]
@@ -114,28 +100,17 @@ HRESULT VDJ_API C[!output PROJECT_NAME]::OnProcessSamples(short *buffer,int nb,i
 //////////////////////////////////////////////////////////////////////////
 // Video processing
 //////////////////////////////////////////////////////////////////////////
-HRESULT VDJ_API C[!output PROJECT_NAME]::OnDraw(IDirect3DTexture9 *texture,TVertex *vertices)
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnDraw()
 {
-	// modify the texture or vertices
-	return S_FALSE;
+	return S_OK;
 }
 [!endif]
 [!if PLUGIN_VIDEOTRANS]
 //////////////////////////////////////////////////////////////////////////
-// Auto-transition
-//////////////////////////////////////////////////////////////////////////
-HRESULT VDJ_API C[!output PROJECT_NAME]::OnCrossfaderTimer(int *crossfader)
-{
-	return GetInfo("AutoVideoCrossfader",crossfader);
-}
-//////////////////////////////////////////////////////////////////////////
 // Video processing
 //////////////////////////////////////////////////////////////////////////
-HRESULT VDJ_API C[!output PROJECT_NAME]::Compose(int crossfader,HRESULT(__stdcall *RenderSurface[2])(),TVertex *vertices[2])
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnDraw(float crossfader)
 {
-	// change the vertices according to crossfader
-	RenderSurface[0];
-	RenderSurface[1];
 	return S_OK;
 }
 [!endif]
