@@ -30,31 +30,38 @@ class C[!output PROJECT_NAME] : public IVdjPlugin8
 {
 public:
 	HRESULT VDJ_API OnLoad();
-	HRESULT VDJ_API OnGetPluginInfo(TVdjPluginInfo *infos);
+	HRESULT VDJ_API OnGetPluginInfo(TVdjPluginInfo8 *info);
 	ULONG   VDJ_API Release();
 	HRESULT VDJ_API OnParameter(int id);
+	HRESULT VDJ_API OnGetParameterString(int id, char *outParam, int outParamSize);
 [!if PLUGIN_DSP]
-        HRESULT VDJ_API OnStart(int pos,int deck);
+        HRESULT VDJ_API OnStart();
 	HRESULT VDJ_API OnStop();
-	HRESULT VDJ_API OnProcessSamples(short *buffer,int nb,int pos);
+	HRESULT VDJ_API OnProcessSamples(float *buffer, int nb);
 [!endif]
 [!if PLUGIN_VIDEOFX]
-	HRESULT VDJ_API OnDraw(IDirect3DTexture9 *texture,TVertex *vertices);
+	HRESULT VDJ_API OnDeviceInit();
+	HRESULT VDJ_API OnDeviceClose();
+	HRESULT VDJ_API OnDraw();
+	HRESULT VDJ_API OnStart();
+	HRESULT VDJ_API OnStop();
 [!endif]
 [!if PLUGIN_VIDEOTRANS]
-	HRESULT VDJ_API Compose(int crossfader,HRESULT(VDJ_API *RenderSurface[2])(),TVertex *vertices[2]);
-	HRESULT VDJ_API OnCrossfaderTimer(int *crossfader);
+	HRESULT VDJ_API OnDeviceInit();
+	HRESULT VDJ_API OnDeviceClose();
+	HRESULT VDJ_API OnDraw(float crossfader)
 [!endif]
 
 private:
 	// For example:
-	int slider1;
-	int slider2;
-	char string1[128];
+	float SliderValue1;
+	float SliderValue2;
 
-	// Plugin Interface ID
-	#define ID_SLIDER_1  0
-	#define ID_SLIDER_2  1
-	#define ID_STRING_1  3
+	typedef enum _ID_Interface
+	{
+		ID_INIT,
+		ID_SLIDER_1,
+		ID_SLIDER_2,
+	} ID_Interface;
 
 };
