@@ -105,9 +105,34 @@ HRESULT VDJ_API C[!output PROJECT_NAME]::OnProcessSamples(float *buffer, int nb)
 //////////////////////////////////////////////////////////////////////////
 // Video processing
 //////////////////////////////////////////////////////////////////////////
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnDeviceInit()
+{
+	return S_OK;
+}
+//------------------------------------------------------------------------
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnDeviceClose()
+{
+	return S_OK;
+}
+//------------------------------------------------------------------------
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnStart()
+{
+	return S_OK;
+}
+//------------------------------------------------------------------------
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnStop()
+{
+	return S_OK;
+}
+//------------------------------------------------------------------------
 HRESULT VDJ_API C[!output PROJECT_NAME]::OnDraw()
 {
 	return S_OK;
+}
+//------------------------------------------------------------------------
+HRESULT VDJ_API OnAudioSamples(float *buffer, int nb)
+{
+	return E_NOTIMPL;
 }
 [!endif]
 [!if PLUGIN_VIDEOTRANS]
