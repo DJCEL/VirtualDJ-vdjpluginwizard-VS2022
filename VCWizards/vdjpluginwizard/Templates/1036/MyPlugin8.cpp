@@ -53,11 +53,11 @@ HRESULT VDJ_API C[!output PROJECT_NAME]::OnGetParameterString(int id, char *outP
 	switch (id)
 	{
 		case ID_SLIDER_1:
-			//sprintf_s(outParam, outParamSize, "%.2f", m_Param1);
+			sprintf_s(outParam, outParamSize, "%.2f", m_Param1);
 			break;
 		
 		case ID_SLIDER_2:
-			//sprintf_s(outParam, outParamSize, "%.2f", m_Param2);
+			sprintf_s(outParam, outParamSize, "%.2f", m_Param2);
 			break;
 	}
 			
