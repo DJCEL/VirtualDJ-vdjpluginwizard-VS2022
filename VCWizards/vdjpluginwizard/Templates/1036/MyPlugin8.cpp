@@ -68,6 +68,7 @@ HRESULT VDJ_API C[!output PROJECT_NAME]::OnGetUserInterface(TVdjPluginInterface8
 	return E_NOTIMPL;
 }
 [!if PLUGIN_STARTSTOP8]
+//------------------------------------------------------------------------------------------
 HRESULT VDJ_API C[!output PROJECT_NAME]::OnStart()
 {
 	return S_OK;
