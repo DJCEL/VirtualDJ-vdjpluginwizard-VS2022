@@ -16,10 +16,10 @@
 		<!-- La balise SYMBOL est utilisée pour définir les valeurs par défaut pour les symboles définis par l'utilisateur.-->
 		<!--  -->
 		<SYMBOL NAME='WIZARD_DIALOG_TITLE' TYPE="text" VALUE='VirtualDJ Plugin'></SYMBOL>
-		<SYMBOL NAME='PLUGIN_DSP' TYPE="checkbox" VALUE="true"></SYMBOL>
-		<SYMBOL NAME='PLUGIN_VIDEOFX' TYPE="checkbox" VALUE="false"></SYMBOL>
-		<SYMBOL NAME='PLUGIN_VIDEOTRANS' TYPE="checkbox" VALUE="false"></SYMBOL>
-		<SYMBOL NAME='PLUGIN_EMPTY' TYPE="checkbox" VALUE="false"></SYMBOL>
+		<SYMBOL NAME='PLUGIN_BASIC8' TYPE="checkbox" VALUE="true"></SYMBOL>
+		<SYMBOL NAME='PLUGIN_DSP8' TYPE="checkbox" VALUE="false"></SYMBOL>
+		<SYMBOL NAME='PLUGIN_VIDEOFX8' TYPE="checkbox" VALUE="false"></SYMBOL>
+		<SYMBOL NAME='PLUGIN_VIDEOTRANS8' TYPE="checkbox" VALUE="false"></SYMBOL>
 		<SYMBOL NAME='SOURCE_FILTER' TYPE="text" VALUE='txt'></SYMBOL>
 		<SYMBOL NAME='APP_TYPE_SUMMARY' TYPE="text" VALUE='VirtualDJ Plugin Wizard'></SYMBOL>
 	</HEAD>
@@ -110,25 +110,26 @@
 													<TD VALIGN="top" WIDTH="100%">
 														<SPAN CLASS="itemTextTop"><u>What kind of plugin do you want to make&nbsp;?</u>
 															<P CLASS="Spacer">&nbsp;</P>
-															<INPUT TYPE="radio" CLASS="Radio" NAME="ProcessRadio" ID="PLUGIN_DSP" ACCESSKEY="S" TITLE="Sound Effect." VALUE="PLUGIN_DSP">
-															<DIV CLASS="itemTextRadioB" TITLE="Sound Effect." ID="AUT_ID1">
-																<LABEL FOR="PLUGIN_DSP" TITLE="Sound Effect." ID="AUT_ID2"><u>S</u>ound Effect</LABEL>&nbsp;
-															</DIV>
-															<BR>
-															<INPUT TYPE="radio" CLASS="Radio" NAME="ProcessRadio" ID="PLUGIN_VIDEOFX" ACCESSKEY="V" TITLE="Video Effect." VALUE="PLUGIN_VIDEOFX">
-															<DIV CLASS="itemTextRadioB" TITLE="Video Effect." ID="Div1">
-																<LABEL FOR="PLUGIN_VIDEOFX" TITLE="Video Effect." ID="Label1"><u>V</u>ideo Effect</LABEL>
-															</DIV>
-															<BR>
-															<INPUT TYPE="radio" CLASS="Radio" NAME="ProcessRadio" ID="PLUGIN_VIDEOTRANS" ACCESSKEY="T" TITLE="Video Transition." VALUE="PLUGIN_VIDEOTRANS">
-															<DIV CLASS="itemTextRadioB" TITLE="Video Transition." ID="Div2">
-																<LABEL FOR="PLUGIN_VIDEOTRANS" TITLE="Video Transition." ID="Label2">Video <u>T</u>ransition</LABEL>&nbsp;
-															</DIV>
-															<BR>
-															<INPUT TYPE="radio" CLASS="Radio" NAME="ProcessRadio" ID="PLUGIN_EMPTY" ACCESSKEY="B" TITLE="Blank Plugin." VALUE="PLUGIN_EMPTY">
+															<INPUT TYPE="radio" CLASS="Radio" NAME="ProcessRadio" ID="PLUGIN_BASIC8" ACCESSKEY="B" TITLE="Basic Plugin." VALUE="PLUGIN_BASIC8">
 															<DIV CLASS="itemTextRadioB" TITLE="Blank Plugin." ID="Div3">
-																<LABEL FOR="PLUGIN_EMPTY" TITLE="Blank Plugin." ID="Label3"><u>B</u>lank Plugin</LABEL>
+																<LABEL FOR="PLUGIN_BASIC8" TITLE="Basic Plugin." ID="Label3"><u>B</u>asic Plugin (for Pro only)</LABEL>
 															</DIV>
+															<INPUT TYPE="radio" CLASS="Radio" NAME="ProcessRadio" ID="PLUGIN_DSP8" ACCESSKEY="S" TITLE="Sound Effect." VALUE="PLUGIN_DSP8">
+															<DIV CLASS="itemTextRadioB" TITLE="Sound Effect." ID="AUT_ID1">
+																<LABEL FOR="PLUGIN_DSP8" TITLE="Sound Effect." ID="AUT_ID2"><u>S</u>ound Effect</LABEL>&nbsp;
+															</DIV>
+															<BR>
+															<INPUT TYPE="radio" CLASS="Radio" NAME="ProcessRadio" ID="PLUGIN_VIDEOFX8" ACCESSKEY="V" TITLE="Video Effect." VALUE="PLUGIN_VIDEOFX8">
+															<DIV CLASS="itemTextRadioB" TITLE="Video Effect." ID="Div1">
+																<LABEL FOR="PLUGIN_VIDEOFX8" TITLE="Video Effect." ID="Label1"><u>V</u>ideo Effect</LABEL>
+															</DIV>
+															<BR>
+															<INPUT TYPE="radio" CLASS="Radio" NAME="ProcessRadio" ID="PLUGIN_VIDEOTRANS8" ACCESSKEY="T" TITLE="Video Transition." VALUE="PLUGIN_VIDEOTRANS8">
+															<DIV CLASS="itemTextRadioB" TITLE="Video Transition." ID="Div2">
+																<LABEL FOR="PLUGIN_VIDEOTRANS8" TITLE="Video Transition." ID="Label2">Video <u>T</u>ransition</LABEL>&nbsp;
+															</DIV>
+															<BR>
+															
 														</SPAN>
 														<P CLASS="ElementSpacer">
 															<SPAN CLASS="itemText">
