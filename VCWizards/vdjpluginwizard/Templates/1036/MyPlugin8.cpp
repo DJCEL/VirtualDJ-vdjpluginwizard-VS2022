@@ -181,6 +181,16 @@ HRESULT VDJ_API OnAudioSamples(float *buffer, int nb)
 //////////////////////////////////////////////////////////////////////////
 // Video processing
 //////////////////////////////////////////////////////////////////////////
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnDeviceInit()
+{
+	return S_OK;
+}
+//------------------------------------------------------------------------
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnDeviceClose()
+{
+	return S_OK;
+}
+//------------------------------------------------------------------------
 HRESULT VDJ_API C[!output PROJECT_NAME]::OnDraw(float crossfader)
 {
 	return S_OK;
