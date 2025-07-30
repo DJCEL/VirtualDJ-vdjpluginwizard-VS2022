@@ -1,0 +1,13 @@
+plugin.cpp
+VdjPlugin8.h
+plugin.rc
+[!if PLUGIN_DSP]
+VdjDsp8.h
+[!endif]
+[!if PLUGIN_VIDEOFX]
+VdjVideo8.h
+[!endif]
+[!if PLUGIN_VIDEOTRANS]
+VdjVideo8.h
+[!endif]
+bitmap.bmp
