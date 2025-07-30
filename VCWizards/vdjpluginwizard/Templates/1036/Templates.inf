@@ -2,12 +2,12 @@ main.cpp
 MyPlugin8.cpp
 MyPlugin8.h
 VdjPlugin8.h
-[!if PLUGIN_DSP]
+[!if PLUGIN_DSP8]
 VdjDsp8.h
 [!endif]
-[!if PLUGIN_VIDEOFX]
+[!if PLUGIN_VIDEOFX8]
 VdjVideo8.h
 [!endif]
-[!if PLUGIN_VIDEOTRANS]
+[!if PLUGIN_VIDEOTRANS8]
 VdjVideo8.h
 [!endif]
