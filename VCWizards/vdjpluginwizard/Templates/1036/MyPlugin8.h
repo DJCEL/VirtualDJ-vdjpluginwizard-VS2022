@@ -58,24 +58,18 @@ class C[!output PROJECT_NAME] : public IVdjPluginOnlineSource
 
 {
 public:
-[!if PLUGIN_DSP8]
 	HRESULT VDJ_API OnLoad();
 	HRESULT VDJ_API OnGetPluginInfo(TVdjPluginInfo8 *info);
 	ULONG   VDJ_API Release();
 	HRESULT VDJ_API OnParameter(int id);
 	HRESULT VDJ_API OnGetParameterString(int id, char *outParam, int outParamSize);
 	HRESULT VDJ_API OnGetUserInterface(TVdjPluginInterface8 *pluginInterface);
+[!if PLUGIN_DSP8]
         HRESULT VDJ_API OnStart();
 	HRESULT VDJ_API OnStop();
 	HRESULT VDJ_API OnProcessSamples(float *buffer, int nb);
 [!endif]
 [!if PLUGIN_VIDEOFX8]
-	HRESULT VDJ_API OnLoad();
-	HRESULT VDJ_API OnGetPluginInfo(TVdjPluginInfo8 *info);
-	ULONG   VDJ_API Release();
-	HRESULT VDJ_API OnParameter(int id);
-	HRESULT VDJ_API OnGetParameterString(int id, char *outParam, int outParamSize);
-	HRESULT VDJ_API OnGetUserInterface(TVdjPluginInterface8 *pluginInterface);
 	HRESULT VDJ_API OnDeviceInit();
 	HRESULT VDJ_API OnDeviceClose();
 	HRESULT VDJ_API OnDraw();
@@ -84,12 +78,6 @@ public:
 	HRESULT VDJ_API OnAudioSamples(float *buffer, int nb);
 [!endif]
 [!if PLUGIN_VIDEOTRANS8]
-	HRESULT VDJ_API OnLoad();
-	HRESULT VDJ_API OnGetPluginInfo(TVdjPluginInfo8 *info);
-	ULONG   VDJ_API Release();
-	HRESULT VDJ_API OnParameter(int id);
-	HRESULT VDJ_API OnGetParameterString(int id, char *outParam, int outParamSize);
-	HRESULT VDJ_API OnGetUserInterface(TVdjPluginInterface8 *pluginInterface);
 	HRESULT VDJ_API OnDeviceInit();
 	HRESULT VDJ_API OnDeviceClose();
 	HRESULT VDJ_API OnDraw(float crossfader)
