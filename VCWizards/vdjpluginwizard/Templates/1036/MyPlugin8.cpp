@@ -14,12 +14,14 @@ HRESULT VDJ_API C[!output PROJECT_NAME]::OnLoad()
 	return S_OK;
 }
 //------------------------------------------------------------------------
-HRESULT VDJ_API C[!output PROJECT_NAME]::OnGetPluginInfo(TVdjPluginInfo *infos)
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnGetPluginInfo(TVdjPluginInfo8 *infos)
 {
-	infos->Author="Put your name here";
-	infos->PluginName="[!output PROJECT_NAME]";
-	infos->Description="Description of your plugin";
-	infos->Flag=0x00;
+	info->Author = "Put your name here";
+	info->PluginName = "[!output PROJECT_NAME]";
+	info->Description = "Description of your plugin";
+	info->Flags = 0x00;
+	info->Version = "1.0 (64-bit)";
+	
 	return S_OK;
 }
 //------------------------------------------------------------------------
@@ -38,7 +40,11 @@ HRESULT VDJ_API C[!output PROJECT_NAME]::OnParameter(int id)
 		case ID_SLIDER_2: break;
 	}
 	
-	SendCommand("effect_redraw", PLUGIN_DECK);
+	return S_OK;
+}
+//-------------------------------------------------------------------------------------------
+HRESULT VDJ_API C[!output PROJECT_NAME]::OnGetParameterString(int id, char *outParam, int outParamSize)
+{
 	return S_OK;
 }
 [!if PLUGIN_DSP]
