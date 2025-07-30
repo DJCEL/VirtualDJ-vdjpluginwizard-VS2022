@@ -55,7 +55,6 @@ class C[!output PROJECT_NAME] : public IVdjPluginVideoTransitionMultiDeck8
 [!if PLUGIN_ONLINESOURCE]
 class C[!output PROJECT_NAME] : public IVdjPluginOnlineSource
 [!endif]
-
 {
 public:
 	HRESULT VDJ_API OnLoad();
