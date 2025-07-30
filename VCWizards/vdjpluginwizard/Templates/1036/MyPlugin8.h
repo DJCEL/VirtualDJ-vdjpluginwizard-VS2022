@@ -4,13 +4,13 @@
 [!if PLUGIN_BASIC8]
 #include "vdjPlugin8.h"
 [!endif]
-[!if PLUGIN_DSP]
+[!if PLUGIN_DSP8]
 #include "vdjDsp8.h"
 [!endif]
-[!if PLUGIN_VIDEOFX]
+[!if PLUGIN_VIDEOFX8]
 #include "vdjVideo8.h"
 [!endif]
-[!if PLUGIN_VIDEOTRANS]
+[!if PLUGIN_VIDEOTRANS8]
 #include "vdjVideo8.h"
 [!endif]
 
@@ -19,18 +19,19 @@
 //////////////////////////////////////////////////////////////////////////
 // Class definition
 //////////////////////////////////////////////////////////////////////////
-[!if PLUGIN_DSP]
-class C[!output PROJECT_NAME] : public IVdjPluginDsp8
-[!endif]
-[!if PLUGIN_VIDEOFX]
-class C[!output PROJECT_NAME] : public IVdjPluginVideoFx8
-[!endif]
-[!if PLUGIN_VIDEOTRANS]
-class C[!output PROJECT_NAME] : public IVdjPluginVideoTransition8
-[!endif]
-[!if PLUGIN_EMPTY]
+[!if PLUGIN_BASIC8]
 class C[!output PROJECT_NAME] : public IVdjPlugin8
 [!endif]
+[!if PLUGIN_DSP8]
+class C[!output PROJECT_NAME] : public IVdjPluginDsp8
+[!endif]
+[!if PLUGIN_VIDEOFX8]
+class C[!output PROJECT_NAME] : public IVdjPluginVideoFx8
+[!endif]
+[!if PLUGIN_VIDEOTRANS8]
+class C[!output PROJECT_NAME] : public IVdjPluginVideoTransition8
+[!endif]
+
 {
 public:
 	HRESULT VDJ_API OnLoad();
@@ -39,12 +40,12 @@ public:
 	HRESULT VDJ_API OnParameter(int id);
 	HRESULT VDJ_API OnGetParameterString(int id, char *outParam, int outParamSize);
 	HRESULT VDJ_API OnGetUserInterface(TVdjPluginInterface8 *pluginInterface);
-[!if PLUGIN_DSP]
+[!if PLUGIN_DSP8]
         HRESULT VDJ_API OnStart();
 	HRESULT VDJ_API OnStop();
 	HRESULT VDJ_API OnProcessSamples(float *buffer, int nb);
 [!endif]
-[!if PLUGIN_VIDEOFX]
+[!if PLUGIN_VIDEOFX8]
 	HRESULT VDJ_API OnDeviceInit();
 	HRESULT VDJ_API OnDeviceClose();
 	HRESULT VDJ_API OnDraw();
@@ -52,7 +53,7 @@ public:
 	HRESULT VDJ_API OnStop();
 	HRESULT VDJ_API OnAudioSamples(float *buffer, int nb);
 [!endif]
-[!if PLUGIN_VIDEOTRANS]
+[!if PLUGIN_VIDEOTRANS8]
 	HRESULT VDJ_API OnDeviceInit();
 	HRESULT VDJ_API OnDeviceClose();
 	HRESULT VDJ_API OnDraw(float crossfader)
