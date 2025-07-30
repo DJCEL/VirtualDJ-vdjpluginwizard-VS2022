@@ -4,6 +4,9 @@
 [!if PLUGIN_BASIC8]
 #include "vdjPlugin8.h"
 [!endif]
+[!if PLUGIN_STARTSTOP8]
+#include "vdjPlugin8.h"
+[!endif]
 [!if PLUGIN_DSP8]
 #include "vdjDsp8.h"
 [!endif]
@@ -34,6 +37,9 @@
 [!if PLUGIN_BASIC8]
 class C[!output PROJECT_NAME] : public IVdjPlugin8
 [!endif]
+[!if PLUGIN_STARTSTOP8]
+class C[!output PROJECT_NAME] : public IVdjPluginStartStop8	
+[!endif]
 [!if PLUGIN_DSP8]
 class C[!output PROJECT_NAME] : public IVdjPluginDsp8
 [!endif]
@@ -63,6 +69,10 @@ public:
 	HRESULT VDJ_API OnParameter(int id);
 	HRESULT VDJ_API OnGetParameterString(int id, char *outParam, int outParamSize);
 	HRESULT VDJ_API OnGetUserInterface(TVdjPluginInterface8 *pluginInterface);
+[!if PLUGIN_STARTSTOP8]
+	HRESULT VDJ_API OnStart();
+	HRESULT VDJ_API OnStop();
+[!endif]
 [!if PLUGIN_DSP8]
         HRESULT VDJ_API OnStart();
 	HRESULT VDJ_API OnStop();
