@@ -37,11 +37,11 @@ HRESULT VDJ_API C[!output PROJECT_NAME]::OnParameter(int id)
 	switch(id)
 	{
 		case ID_SLIDER_1: 
-			m_Param1 = m_SliderValue1;
+			m_Param1 = m_SliderValue1 * 10.0f;
 			break;
 		
 		case ID_SLIDER_2:
-			m_Param2 = m_SliderValue2 * 10.0f;
+			m_Param2 = 10.0f + m_SliderValue2 * (50.0f - 10.0f);
 			break;
 	}
 	
