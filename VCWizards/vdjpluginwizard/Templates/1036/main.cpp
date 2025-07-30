@@ -11,11 +11,20 @@ HRESULT VDJ_API DllGetClassObject(const GUID &rclsid,const GUID &riid,void** ppO
 [!if PLUGIN_DSP8]
 	if(memcmp(&riid,&IID_IVdjPluginDsp8,sizeof(GUID))!=0) return CLASS_E_CLASSNOTAVAILABLE;
 [!endif]
+[!if PLUGIN_BUFFERDSP8]
+	if(memcmp(&riid,&IID_IVdjPluginBuffer8,sizeof(GUID))!=0) return CLASS_E_CLASSNOTAVAILABLE;
+[!endif]
+[!if PLUGIN_POSITIONDSP8]
+	if(memcmp(&riid,&IID_IVdjPluginPosition8,sizeof(GUID))!=0) return CLASS_E_CLASSNOTAVAILABLE;
+[!endif]
 [!if PLUGIN_VIDEOFX8]
 	if(memcmp(&riid,&IID_IVdjPluginVideoFx8,sizeof(GUID))!=0) return CLASS_E_CLASSNOTAVAILABLE;
 [!endif]
 [!if PLUGIN_VIDEOTRANS8]
 	if(memcmp(&riid,&IID_IVdjPluginVideoTransition8,sizeof(GUID))!=0) return CLASS_E_CLASSNOTAVAILABLE;
+[!endif]
+[!if PLUGIN_VIDEOTRANSMULTIDECK8]
+	if(memcmp(&riid,&IID_IVdjPluginVideoTransitionMultiDeck8,sizeof(GUID))!=0) return CLASS_E_CLASSNOTAVAILABLE;
 [!endif]
 [!if PLUGIN_ONLINESOURCE]
 	if(memcmp(&riid,&IID_IVdjPluginOnlineSource,sizeof(GUID))!=0) return CLASS_E_CLASSNOTAVAILABLE;
