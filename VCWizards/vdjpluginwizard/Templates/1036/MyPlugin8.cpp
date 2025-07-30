@@ -19,7 +19,6 @@ HRESULT VDJ_API C[!output PROJECT_NAME]::OnGetPluginInfo(TVdjPluginInfo *infos)
 	infos->Author="Put your name here";
 	infos->PluginName="[!output PROJECT_NAME]";
 	infos->Description="Description of your plugin";
-	infos->Bitmap=PLUGIN_BITMAP;
 	infos->Flag=0x00;
 	return S_OK;
 }
