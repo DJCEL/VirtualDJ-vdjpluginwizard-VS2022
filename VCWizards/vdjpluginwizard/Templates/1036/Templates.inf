@@ -5,6 +5,12 @@ VdjPlugin8.h
 [!if PLUGIN_DSP8]
 VdjDsp8.h
 [!endif]
+[!if PLUGIN_BUFFERDSP8]
+VdjDsp8.h
+[!endif]
+[!if PLUGIN_POSITIONDSP8]
+VdjDsp8.h
+[!endif]
 [!if PLUGIN_VIDEOFX8]
 VdjVideo8.h
 [!endif]
