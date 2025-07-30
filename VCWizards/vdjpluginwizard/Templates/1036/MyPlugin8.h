@@ -86,7 +86,7 @@ public:
 [!if PLUGIN_POSITIONDSP8]
 	HRESULT VDJ_API OnStart();
 	HRESULT VDJ_API OnStop();
-	HRESULT VDJ_API OnTransformPosition(double *songPos, double *videoPos)
+	HRESULT VDJ_API OnTransformPosition(double *songPos, double *videoPos);
 [!endif]
 [!if PLUGIN_VIDEOFX8]
 	HRESULT VDJ_API OnDeviceInit();
@@ -99,8 +99,13 @@ public:
 [!if PLUGIN_VIDEOTRANS8]
 	HRESULT VDJ_API OnDeviceInit();
 	HRESULT VDJ_API OnDeviceClose();
-	HRESULT VDJ_API OnDraw(float crossfader)
+	HRESULT VDJ_API OnDraw(float crossfader);
 [!endif]
+[!if PLUGIN_VIDEOTRANSMULTIDECK8]
+	HRESULT VDJ_API OnDeviceInit();
+	HRESULT VDJ_API OnDeviceClose();
+	HRESULT VDJ_API OnDrawMultiDeck(int nbVideoDecks, int *videoDecks);
+[!endif]	
 [!if PLUGIN_ONLINESOURCE]
 	HRESULT VDJ_API IsLogged();
 	HRESULT VDJ_API OnLogin();
