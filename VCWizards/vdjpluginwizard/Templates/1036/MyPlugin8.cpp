@@ -88,7 +88,7 @@ HRESULT VDJ_API C[!output PROJECT_NAME]::OnProcessSamples(float *buffer, int nb)
 		left = buffer[2*i];
 		right = buffer[2*i+1];
 		
-		// do whatever you want here (modify left and/or right values)
+		// do whatever you want here (modify left and/or right)
 		
 		buffer[2*i] = left;
 		buffer[2*i+1] = right;
