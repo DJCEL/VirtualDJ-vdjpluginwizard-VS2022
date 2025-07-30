@@ -4,13 +4,14 @@
 //------------------------------------------------------------------------
 HRESULT VDJ_API C[!output PROJECT_NAME]::OnLoad()
 {
+	HRESULT hr = S_FALSE;
+	
 	// For example:
-	DeclareParameter(&slider1,VDJPARAM_SLIDER,ID_SLIDER_1,"My first slider",2048);
-	DeclareParameter(&slider2,VDJPARAM_SLIDER,ID_SLIDER_2,"My second slider",2048);
-	DeclareParameter(string1,VDJPARAM_STRING,ID_STRING_1,"Text1",sizeof(string1));
+	hr = DeclareParameterSlider(&SliderValue1, ID_SLIDER_1, "Param1", "P1", 0.0f);
+	hr = DeclareParameterSlider(&SliderValue2, ID_SLIDER_2, "Param2", "P2", 0.5f);
 
-	OnParameter(ID_SLIDER_1);
-	OnParameter(ID_SLIDER_2);
+	hr = OnParameter(ID_SLIDER_1);
+	hr = OnParameter(ID_SLIDER_2);
 	return S_OK;
 }
 //------------------------------------------------------------------------
@@ -35,9 +36,13 @@ HRESULT VDJ_API C[!output PROJECT_NAME]::OnParameter(int id)
 {
 	switch(id)
 	{
-		// For example:
-		case ID_SLIDER_1: break;
-		case ID_SLIDER_2: break;
+		case ID_SLIDER_1: 
+			m_Param1 = m_SliderValue1;
+			break;
+		
+		case ID_SLIDER_2:
+			m_Param2 = m_SliderValue2 * 10.0f;
+			break;
 	}
 	
 	return S_OK;
@@ -45,6 +50,13 @@ HRESULT VDJ_API C[!output PROJECT_NAME]::OnParameter(int id)
 //-------------------------------------------------------------------------------------------
 HRESULT VDJ_API C[!output PROJECT_NAME]::OnGetParameterString(int id, char *outParam, int outParamSize)
 {
+	switch (id)
+	{
+		case ID_SLIDER_1:
+			sprintf_s(outParam, outParamSize, "%.2f", m_Param1);
+			break;
+	}
+			
 	return S_OK;
 }
 [!if PLUGIN_DSP]
