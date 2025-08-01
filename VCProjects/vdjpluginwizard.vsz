@@ -1,6 +1,7 @@
 VSWIZARD 8.0
 Wizard=VsWizard.VsWizardEngine.17.0
 Param="WIZARD_NAME = vdjpluginwizard"
-Param="PROJECT_TYPE = VC++"
+Param="PROJECT_TYPE = VC"
 Param="RELATIVE_PATH = VCWizards\vdjpluginwizard"
 Param="FALLBACK_LCID = 1036"
+
