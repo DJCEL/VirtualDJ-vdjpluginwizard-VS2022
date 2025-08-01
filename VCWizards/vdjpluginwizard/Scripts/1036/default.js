@@ -86,8 +86,12 @@ function AddConfig(proj, strProjectName)
 		LinkTool.GenerateDebugInformation = true;
 		LinkTool.LinkIncremental = linkIncrementalYes;
 		if(wizard.FindSymbol("PLUGIN_DSP8")==1) LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\SoundEffect\Dev\$(TargetName)$(TargetExt)";
+		else if(wizard.FindSymbol("PLUGIN_BUFFERDSP8")==1) LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\SoundEffect\Dev\$(TargetName)$(TargetExt)";
+		else if(wizard.FindSymbol("PLUGIN_POSITIONDSP8")==1) LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\SoundEffect\Dev\$(TargetName)$(TargetExt)";
 		else if(wizard.FindSymbol("PLUGIN_VIDEOFX8")==1) LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\VideoEffect\Dev\$(TargetName)$(TargetExt)";
 		else if(wizard.FindSymbol("PLUGIN_VIDEOTRANS8")==1) LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\VideoTransition\Dev\$(TargetName)$(TargetExt)";
+		else if(wizard.FindSymbol("PLUGIN_VIDEOTRANSMULTIDECK8")==1) LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\VideoTransition\Dev\$(TargetName)$(TargetExt)";
+		else if(wizard.FindSymbol("PLUGIN_ONLINESOURCE")==1) LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\OnlineSource$(TargetName)$(TargetExt)";
 		else LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\Other\Dev\$(TargetName)$(TargetExt)";
 
 		config = proj.Object.Configurations('Release');
@@ -102,8 +106,12 @@ function AddConfig(proj, strProjectName)
 		LinkTool.LinkIncremental = linkIncrementalNo;
 		LinkTool.GenerateDebugInformation = false;
 		if(wizard.FindSymbol("PLUGIN_DSP8")==1) LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\SoundEffect\Dev\$(TargetName)$(TargetExt)";
+		else if(wizard.FindSymbol("PLUGIN_BUFFERDSP8")==1) LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\SoundEffect\Dev\$(TargetName)$(TargetExt)";
+		else if(wizard.FindSymbol("PLUGIN_POSITIONDSP8")==1) LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\SoundEffect\Dev\$(TargetName)$(TargetExt)";
 		else if(wizard.FindSymbol("PLUGIN_VIDEOFX8")==1) LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\VideoEffect\Dev\$(TargetName)$(TargetExt)";
 		else if(wizard.FindSymbol("PLUGIN_VIDEOTRANS8")==1) LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\VideoTransition\Dev\$(TargetName)$(TargetExt)";
+		else if(wizard.FindSymbol("PLUGIN_VIDEOTRANSMULTIDECK8")==1) LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\VideoTransition\Dev\$(TargetName)$(TargetExt)";
+		else if(wizard.FindSymbol("PLUGIN_ONLINESOURCE")==1) LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\OnlineSource$(TargetName)$(TargetExt)";
 		else LinkTool.OutputFile = "$(LOCALAPPDATA)\VirtualDJ\Plugins64\Other\Dev\$(TargetName)$(TargetExt)";
 	}
 	catch(e)
@@ -182,3 +190,4 @@ function AddFilesToCustomProj(proj, strProjectName, strProjectPath, InfFile)
 		throw e;
 	}
 }
+
