@@ -1,10 +1,11 @@
 VSWIZARD 7.0
 Wizard=VsWizard.VsWizardEngine.17.0
 Param="WIZARD_NAME = vdjpluginwizard"
-Param="WIZARDUI = TRUE"
-Param="PROJECT_TYPE = VC++"
+Param="WIZARDUI = FALSE"
+Param="PROJECT_TYPE = VCXPROJ"
 Param="RELATIVE_PATH = VCWizards\vdjpluginwizard"
 Param="FALLBACK_LCID = 1036"
+
 
 
 
