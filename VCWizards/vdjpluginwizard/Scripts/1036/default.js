@@ -38,7 +38,6 @@ function CreateCustomProject(strProjectName, strProjectPath)
 		var strProjTemplate = strProjTemplatePath + '\\default.vcxproj';
 
 		var Solution = dte.Solution;
-		//var strSolutionName = "";
 		var strSolutionName = strProjectName + '.sln';
 		var oCloseSolution = wizard.FindSymbol("CLOSE_SOLUTION");
 		if (oCloseSolution)
@@ -259,4 +258,5 @@ function AddFilesToCustomProj(oProj, strProjectName, strProjectPath, InfFile)
 		throw e;
 	}
 }
+
 
