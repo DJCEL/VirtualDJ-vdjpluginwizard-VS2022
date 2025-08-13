@@ -188,10 +188,12 @@ function GetTargetName(strName, strProjectName)
 	try
 	{
 		var strTarget = strName;
+		var strSubName = strName.substr(0, 6);
 
-		if (strName.substr(0, 6) == "plugin")
+		if (strSubName == "plugin")
 		{
-			strTarget = strProjectName + strName.substr(6);
+			var strNameExt = strName.substr(6);
+			strTarget = strProjectName + strNameExt;
 		}
 
 		return strTarget; 
@@ -256,7 +258,3 @@ function AddFilesToCustomProj(oProj, strProjectName, strProjectPath, InfFile)
 		throw e;
 	}
 }
-
-
-
-
