@@ -1,5 +1,5 @@
 /******************************************************************************/
-/*STYLES PAR DÉFAUT POUR TOUTES LES SECTIONS**********************************************/
+/*STYLES PAR DÃ‰FAUT POUR TOUTES LES SECTIONS**********************************************/
 /******************************************************************************/
 body						  { font-family: Tahoma, Verdana, Arial, Sans Serif;
 							    font-weight: normal;
@@ -35,7 +35,7 @@ table.one					  { table-layout: fixed;
 								width: 100%; }
 
 
-/*STYLES PAR DÉFAUT POUR LE TABLEAU D'INTRODUCTION**********************************/
+/*STYLES PAR DÃ‰FAUT POUR LE TABLEAU D'INTRODUCTION**********************************/
 /******************************************************************************/
 
 table.two					  { table-layout: fixed;
@@ -61,7 +61,7 @@ img.smallest			  	  { background-color: activecaption;
 
 img.small				  	  { z-index: 1; }
 
-/*STYLES PAR DÉFAUT POUR LE TABLEAU DE NAVIGATION************************************/
+/*STYLES PAR DÃ‰FAUT POUR LE TABLEAU DE NAVIGATION************************************/
 /******************************************************************************/
 
 table.three					  { table-layout: fixed;
@@ -153,7 +153,7 @@ span.inactivelink			  { color: buttonface;
 							    cursor: default; }
 
 
-/*STYLES PAR DÉFAUT POUR TOUS LES BOUTONS ET LE TABLEAU DES BOUTONS*******************/
+/*STYLES PAR DÃ‰FAUT POUR TOUS LES BOUTONS ET LE TABLEAU DES BOUTONS*******************/
 /******************************************************************************/
 
 button						  { font-family: Tahoma, Verdana, Arial, Sans Serif;
@@ -164,7 +164,7 @@ button						  { font-family: Tahoma, Verdana, Arial, Sans Serif;
 
 .buttons				  	  { width: 75px; }
 
-/*STYLES PAR DÉFAUT POUR LE TABLEAU DE CONTENU***************************************/
+/*STYLES PAR DÃ‰FAUT POUR LE TABLEAU DE CONTENU***************************************/
 /******************************************************************************/
 
 table.content			 	  { table-layout: fixed;
@@ -308,28 +308,28 @@ input.sidebtn				  { width: 173px;
 								top: 5px;
 								left: 8px; }
 								
-/****ZONE DE SAISIE EN RETRAIT SOUS UNE SECTION DE CASE À COCHER*******************/
+/****ZONE DE SAISIE EN RETRAIT SOUS UNE SECTION DE CASE Ã€ COCHER*******************/
 input.sidebtnIndent			  { width: 163px;
 								position: relative;
 								top: 5px;
 								left: 18px;
 								bottom: 6px; }
 								
-/****ZONE DE SAISIE EN RETRAIT SOUS UNE SECTION DE TITRE ET DE RÈGLE***********/
+/****ZONE DE SAISIE EN RETRAIT SOUS UNE SECTION DE TITRE ET DE RÃˆGLE***********/
 input.sidebtnB				  { width: 164px;
 								position: relative;
 								top: 5px;
 								left: 8px;
 								bottom: 6px; }
 								
-/****ZONE DE SAISIE ACCOMPAGNÉE D'UN BOUTON "..."*******************************/
+/****ZONE DE SAISIE ACCOMPAGNÃ‰E D'UN BOUTON "..."*******************************/
 input.sidebtn2				  { width: 149px;
 								position: relative;
 								top: 5px;
 								left: 8px;
 								bottom: 6px; }
 								
-/****ZONE DE SAISIE ACCOMPAGNÉE D'UN BOUTON "...", SOUS UNE CASE À COCHER*****/
+/****ZONE DE SAISIE ACCOMPAGNÃ‰E D'UN BOUTON "...", SOUS UNE CASE Ã€ COCHER*****/
 input.sidebtn2Indent		  { width: 139px;
 								position: relative;
 								top: 5px;
@@ -366,7 +366,7 @@ select						  { font-family: Tahoma, Verdana, Arial, Sans Serif;
 				 			    font-size: 8pt;
 							    color: buttontext; }
 
-/****ZONE DE SÉLECTION STANDARD****************************************/
+/****ZONE DE SÃ‰LECTION STANDARD****************************************/
 select.sidebtn				  { width: 173px;
 								position: relative;
 								top: 6px;
@@ -374,28 +374,28 @@ select.sidebtn				  { width: 173px;
 								bottom: 0px;
 								margin-bottom: -3px; }
 
-/****ZONE DE SÉLECTION STANDARD****************************************/
+/****ZONE DE SÃ‰LECTION STANDARD****************************************/
 span.sidebtn				  { position: relative;
 								top: 6px;
 								left: 8px;
 								bottom: 0px;
 								margin-bottom: -3px; }
 
-/****ZONE DE SÉLECTION STANDARD****************************************/
+/****ZONE DE SÃ‰LECTION STANDARD****************************************/
 span.itemtextspecial		  { position: relative;
 								top: -20px;
 								left: 16px;
 								bottom: 0px;
 								margin-bottom: -3px; }
 
-/****ZONE DE SÉLECTION STANDARD****************************************/
+/****ZONE DE SÃ‰LECTION STANDARD****************************************/
 span.sidebtnspecial			  { position: relative;
 								top: -2px;
 								left: 54px;
 								bottom: 0px;
 								margin-bottom: -3px; }
 
-/****CETTE ZONE DE SÉLECTION EST EN RETRAIT SOUS UNE SECTION DE TITRE ET DE RÈGLE***********/
+/****CETTE ZONE DE SÃ‰LECTION EST EN RETRAIT SOUS UNE SECTION DE TITRE ET DE RÃˆGLE***********/
 select.sidebtnB				  { width: 164px;
 								position: relative;
 								top: 6px;
@@ -403,7 +403,7 @@ select.sidebtnB				  { width: 164px;
 								bottom: 0px;
 								margin-bottom: -3px; }
 								
-/****CETTE ZONE DE SÉLECTION SE TROUVE SOUS UNE CASE À COCHER ET LUI EST ASSOCIÉE****************/
+/****CETTE ZONE DE SÃ‰LECTION SE TROUVE SOUS UNE CASE Ã€ COCHER ET LUI EST ASSOCIÃ‰E****************/
 select.sidebtn2				  { width: 164px;
 								position: relative;
 								top: 13px;
@@ -411,7 +411,7 @@ select.sidebtn2				  { width: 164px;
 								bottom: 0px;
 								margin-bottom: -3px; }
 								
-/****CETTE ZONE DE SÉLECTION SE TROUVE SOUS UNE CASE À COCHER ET UN TITRE ET LEUR EST ASSOCIÉE****/
+/****CETTE ZONE DE SÃ‰LECTION SE TROUVE SOUS UNE CASE Ã€ COCHER ET UN TITRE ET LEUR EST ASSOCIÃ‰E****/
 select.sidebtn2A			  { width: 156px;
 								position: relative;
 								top: 13px;
@@ -419,7 +419,7 @@ select.sidebtn2A			  { width: 156px;
 								bottom: 0px;
 								margin-bottom: -3px; }
 								
-/****CETTE ZONE DE SÉLECTION SE TROUVE SOUS UNE CASE À COCHER ET UN TITRE ET LEUR EST ASSOCIÉE****/
+/****CETTE ZONE DE SÃ‰LECTION SE TROUVE SOUS UNE CASE Ã€ COCHER ET UN TITRE ET LEUR EST ASSOCIÃ‰E****/
 select.sidebtn2ALong		  { width: 277px;
 								position: relative;
 								top: 6px;
@@ -434,7 +434,7 @@ select.sidebtn2B			  { width: 156px;
 								bottom: 0px;
 								margin-bottom: -3px; }
 								
-/****ZONE DE SÉLECTION ACCOMPAGNÉE DE BOUTONS "..."**************************/
+/****ZONE DE SÃ‰LECTION ACCOMPAGNÃ‰E DE BOUTONS "..."**************************/
 select.sidebtn2C			  { width: 149px;
 								position: relative;
 								top: 5px;
@@ -453,7 +453,7 @@ select.sidebtn3				  { width: 150px;
 								bottom: 0px;
 								margin-bottom: -3px; }
 								
-/****ZONE DE SÉLECTION POUR LES SECTIONS HORIZONTALES D'AJOUT ET DE SUPPRESSION******************/
+/****ZONE DE SÃ‰LECTION POUR LES SECTIONS HORIZONTALES D'AJOUT ET DE SUPPRESSION******************/
 select.sidebtn4Long			  { width: 574px;
 								position: relative;
 								top: 6px;
@@ -477,25 +477,25 @@ object.itemtext				  { font-family: Tahoma, Verdana, Arial, Sans Serif;
 				 			    font-size: 8pt;
 							    color: buttontext; }
 				  
-/****DÉFINIT UN BOUTON STANDARD DANS LA SECTION DE CONTENU*********************/
+/****DÃ‰FINIT UN BOUTON STANDARD DANS LA SECTION DE CONTENU*********************/
 .buttonclass			 	  { margin-top: 2px;
 								margin-left: 8px;
 								margin-bottom: -6px;
 								padding: 2px; }
 				  
-/****DÉFINIT LES BOUTONS D'AJOUT ET DE SUPPRESSION DANS LA SECTION DE CONTENU********************/
+/****DÃ‰FINIT LES BOUTONS D'AJOUT ET DE SUPPRESSION DANS LA SECTION DE CONTENU********************/
 .buttonclass2			 	  { margin-top: 8px;
 								margin-left: 8px;
 							    z-index: 1;
 								cursor: hand; }
 				  
-/****DÉFINIT UN BOUTON "..." DANS LA SECTION DE CONTENU************************/
+/****DÃ‰FINIT UN BOUTON "..." DANS LA SECTION DE CONTENU************************/
 .buttonclass3			 	  { height: 19px;
 								width: 20px;
 								position: relative;
 								top: 2px; }
 				  
-/****DÉFINIT UN BOUTON "..." DANS LA SECTION DE CONTENU, SOUS UNE CASE À COCHER***/
+/****DÃ‰FINIT UN BOUTON "..." DANS LA SECTION DE CONTENU, SOUS UNE CASE Ã€ COCHER***/
 .buttonclass3Indent		 	  { height: 19px;
 								width: 20px;
 								position: relative;
@@ -513,30 +513,30 @@ object.itemtext				  { font-family: Tahoma, Verdana, Arial, Sans Serif;
 								position: relative;
 								top: 5px; }
 								
-/****DÉFINIT UN BOUTON ">>" DANS LA SECTION DE CONTENU************************/
+/****DÃ‰FINIT UN BOUTON ">>" DANS LA SECTION DE CONTENU************************/
 .buttonclass4			 	  { margin-bottom: 4px;
 								width: 75px;
 								height: 23px; }
 								
-/****DÉFINIT LES BOUTONS D'AJOUT ET DE SUPPRESSION HORIZONTALEMENT DANS LA SECTION DE CONTENU******/
+/****DÃ‰FINIT LES BOUTONS D'AJOUT ET DE SUPPRESSION HORIZONTALEMENT DANS LA SECTION DE CONTENU******/
 .buttonclass5			 	  { margin-left: 4px; }
 								
-/****DÉFINIT TOUT D'ABORD LES BOUTONS  HORIZONTAUX D'AJOUT ET DE SUPPRESSION DE LA SECTION DE CONTENU****/
+/****DÃ‰FINIT TOUT D'ABORD LES BOUTONS  HORIZONTAUX D'AJOUT ET DE SUPPRESSION DE LA SECTION DE CONTENU****/
 .buttonclass5A			 	  { margin-left: 8px; }
 								
-/****DÉFINIT LA MARGE DE GAUCHE POUR LE BOUTON DE SUPPRESSION***************************/
+/****DÃ‰FINIT LA MARGE DE GAUCHE POUR LE BOUTON DE SUPPRESSION***************************/
 #removebtn				 	  { margin-left: 4px; }
 
 
 								
-/****DÉFINIT LA MARGE DE GAUCHE POUR LA SECTION EN RETRAIT QUI SE TROUVE SOUS LES CASES À COCHER***********/
+/****DÃ‰FINIT LA MARGE DE GAUCHE POUR LA SECTION EN RETRAIT QUI SE TROUVE SOUS LES CASES Ã€ COCHER***********/
 label.indent				  { margin-left: 18px; }
 
-/****DÉFINIT LA MARGE DE GAUCHE POUR LA SECTION EN RETRAIT QUI SE TROUVE SOUS LES CASES À COCHER***********/
+/****DÃ‰FINIT LA MARGE DE GAUCHE POUR LA SECTION EN RETRAIT QUI SE TROUVE SOUS LES CASES Ã€ COCHER***********/
 label.indent2				  { margin-left: 26px; }
 								
 								
-/****ÉLÉMENTS D'ESPACEMENT PERSONNALISÉS*****************************************/
+/****Ã‰LÃ‰MENTS D'ESPACEMENT PERSONNALISÃ‰S*****************************************/
 p.spacer					  { margin-bottom: -28px; }
 								
 p.elementspacer				  { margin-bottom: -12px; }
@@ -568,7 +568,7 @@ p.elementspacer13			  { margin-bottom: -23px; }
 p.elementspacer14			  { margin-bottom: -25px; }
 
 
-/*STYLES PERSONNALISÉS POUR LE FRAME 'CONTENT'****************************************/
+/*STYLES PERSONNALISÃ‰S POUR LE FRAME 'CONTENT'****************************************/
 /******************************************************************************/
 
 
