@@ -33,7 +33,7 @@ HRESULT VDJ_API DllGetClassObject(const GUID &rclsid,const GUID &riid,void** ppO
 	if(memcmp(&riid,&IID_IVdjPluginOnlineSource,sizeof(GUID))!=0) return CLASS_E_CLASSNOTAVAILABLE;
 [!endif]
 	
-	*ppObject = new C[!output PROJECT_NAME]();  // we create our CMyPlugin8 class
+	*ppObject = new C[!output PROJECT_NAME]();  // we create our class
 	
 	return NO_ERROR;
 }
