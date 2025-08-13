@@ -7,7 +7,8 @@
 		</STYLE>
 		<SCRIPT>
 		var strURL = window.external.FindSymbol("PRODUCT_INSTALLATION_DIR");
-		strURL += "VCWizards/vdjpluginwizard/1036/NewStyles.css";
+		strURL += "VCWizards/vdjpluginwizard/1036/";
+	    strURL += "NewStyles.css";
 		document.styleSheets(0).imports(0).href = strURL;
 		</SCRIPT>
 		<!--  -->
@@ -288,15 +289,15 @@ appeler ces fonctions à partir de vos scripts HTML.
 //-->
 		<SCRIPT>
 	var strPath = window.external.FindSymbol("PRODUCT_INSTALLATION_DIR");
-	strPath += "VCWizards/";
-	strPath += window.external.GetHostLocale();
-	var strScriptPath = strPath + "/Script.js";
-	var strCommonPath = strPath + "/Common.js";
+	strPath += "VCWizards/vdjpluginwizard/scripts/1036/";
+	var strScriptPath = strPath + "Script.js";
+	var strCommonPath = strPath + "Common.js";
 	document.scripts("INCLUDE_SCRIPT").src = strScriptPath;
 	document.scripts("INCLUDE_COMMON").src = strCommonPath;
 		</SCRIPT>
 	</BODY>
 </HTML>
+
 
 
 
