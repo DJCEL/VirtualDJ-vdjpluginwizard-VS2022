@@ -40,7 +40,8 @@ function CreateCustomProject(strProjectName, strProjectPath)
 		var Solution = dte.Solution;
 		//var strSolutionName = "";
 		var strSolutionName = strProjectName + '.sln';
-		if (wizard.FindSymbol("CLOSE_SOLUTION"))
+		var oCloseSolution = wizard.FindSymbol("CLOSE_SOLUTION");
+		if (oCloseSolution)
 		{
 			Solution.Close();
 			strSolutionName = wizard.FindSymbol("VS_SOLUTION_NAME");
@@ -255,6 +256,7 @@ function AddFilesToCustomProj(oProj, strProjectName, strProjectPath, InfFile)
 		throw e;
 	}
 }
+
 
 
 
