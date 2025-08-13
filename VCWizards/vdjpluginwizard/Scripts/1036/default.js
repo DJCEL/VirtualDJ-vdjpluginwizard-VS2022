@@ -56,9 +56,10 @@ function CreateCustomProject(strProjectName, strProjectPath)
 		var oTarget = wizard.FindSymbol("TARGET");
 		var oWizardType = wizard.FindSymbol("WIZARD_TYPE");
 		var oProj;
-		if (oWizardType == vsWizardAddSubProject)  // vsWizardAddSubProject
+		if (oWizardType == vsWizardAddSubProject)
 		{
-			var prjItem = oTarget.AddFromTemplate(strProjTemplate, strProjectPath + "\\" + strProjectNameWithExt);
+			var strProjectNameFull = strProjectPath + "\\" + strProjectNameWithExt;
+			var prjItem = oTarget.AddFromTemplate(strProjTemplate, strProjectNameFull);
 			oProj = prjItem.SubProject;
 		}
 		else
@@ -258,3 +259,4 @@ function AddFilesToCustomProj(oProj, strProjectName, strProjectPath, InfFile)
 		throw e;
 	}
 }
+
